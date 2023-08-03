@@ -1,0 +1,72 @@
+{
+  "editorsSneakersData ": [
+    {
+      "name": "Air Jordan 1 Low OG",
+      "numColors": 1,
+      "price": 140,
+      "age_sex": "unisex",
+      "brand": "Nike",
+      "shoeInfo": "The Air Jordan 1 Low OG remakes the classic sneaker with new colors and textures. Premium materials and accents give fresh expression to an all-time favorite",
+      "image": "./sneakers/air-jordan-1-low-og-shoes.png",
+      "colorShown": "Shown: White/Varsity Red/Black",
+      "style": "CU0449-100"
+    },
+    {
+      "name": "Air Jordan 1 Low SE",
+      "numColors": 1,
+      "price": 120,
+      "age_sex": "women",
+      "brand": "Nike",
+      "shoeInfo": "MJ danced through the air on his way to the hoop. You can boogie anywhere in these AJ1s. Classic colors get the gradient treatment and come through extra fun, while pops of gold keep the look first-place. So go ahead, bust a move (or whatever you kids are saying these days).",
+      "image": "./sneakers/air-jordan-1-low-se-womens-shoes.png",
+      "colorShown": "White/White/Football Grey/Emerald Rise",
+      "style": "CZ4776-100"
+    },
+    {
+      "name": "Superstar XLG Shoes",
+      "numColors": 1,
+      "price": 110,
+      "age_sex": "male",
+      "brand": "Adidas",
+      "shoeInfo": "The adidas Superstar sneaker reigns supreme. The fan favorite launched in 1969 and quickly lived up to its name as NBA players laced into the now-famous shell-toe design. These men's shoes come in full grain leather with serrated 3-Stripes and a rubber cupsole.",
+      "image": "./sneakers/superstar-xlg-shoes.jpg",
+      "colorShown": "Cloud White / Core Black / Cloud White",
+      "style": "FW2294"
+    },
+
+    {
+      "name": "Superstar Shoes",
+      "numColors": 1,
+      "price": 105,
+      "age_sex": "male",
+      "brand": "Adidas",
+      "shoeInfo": "The adidas Superstar sneaker reigns supreme. The fan favorite launched in 1969 and quickly lived up to its name as NBA players laced into the now-famous shell-toe design. These men's shoes come in full grain leather with serrated 3-Stripes and a rubber cupsole.",
+      "image": "./sneakers/superstar-shoes.jpg",
+      "colorShown": "Cloud White / Core Black / Cloud White",
+      "style": "FW2295"
+    },
+    {
+      "name": "Out of Officer Calf Leather",
+      "numColors": 1,
+      "price": 635,
+      "age_sex": "unisex",
+      "brand": "Off-White",
+      "shoeInfo": "Red and white low Out Of Office leather sneakers featuring red label and arrows at sides. White and red rubber sole.",
+      "image": "./sneakers/officer-calf-leather.jpg",
+      "colorShown": "White/Red",
+      "style": "OMIA176F20LEA0012001"
+    },
+
+    {
+      "name": "Out of Office Straps",
+      "numColors": 1,
+      "price": 470,
+      "age_sex": "kids",
+      "brand": "Off-White",
+      "shoeInfo": "White and black Out of office sneakers with strap closure.Tonal zip tie at padded tongue.Please note that this item should not come into contact with water.",
+      "image": "./sneakers/out-of-office-straps.jpg",
+      "colorShown": "White/Black",
+      "style": "OMIA176F20LEA0010110"
+    }
+  ]
+}
