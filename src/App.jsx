@@ -3,7 +3,7 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Sneaker from './pages/Sneaker';
 import Order from './pages/Order';
-import Cart from './pages/Cart';
+import Cart from './features/cart/Cart';
 import AppLayout from './ui/AppLayout';
 import PageNotFound from './pages/PageNotFound';
 import Login from './pages/Login';

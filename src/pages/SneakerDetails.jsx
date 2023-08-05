@@ -9,12 +9,19 @@ import Loader from '../ui/Loader';
 import Button from '../ui/Button';
 import { formatCurrency } from '../utils/helpers';
 import TextExpander from '../utils/textExpander';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItems, getCurrentQuantityById } from '../features/cart/cartSlice';
+import UpdateItemQuantity from '../features/cart/UpdateItemQuantity';
+import DeleteItem from '../features/cart/DeleteItem';
+
 const BASE_URL = 'http://localhost:8000/';
 function SneakerDetails() {
   // useparams, we use this to read the parameter from the URl
   const { id } = useParams();
-  const [sneakerDetails, setSneakerDetails] = useState(null);
 
+  const [sneakerDetails, setSneakerDetails] = useState(null);
+  const currentQuantity = useSelector(getCurrentQuantityById(id));
+  const dispatch = useDispatch();
   useEffect(() => {
     getSneakerDetails(id).then((data) => {
       setSneakerDetails(data);
@@ -25,8 +32,21 @@ function SneakerDetails() {
     return <Loader />;
   }
 
+  const isInCart = currentQuantity > 0;
+
   const { name, image, shoeInfo, price, colorShown } = sneakerDetails;
   const imageURL = BASE_URL + image;
+
+  function handleAddToCart() {
+    const newItem = {
+      id,
+      name,
+      quantity: 1,
+      price,
+      totalPrice: price * 1,
+    };
+    dispatch(addItems(newItem));
+  }
 
   return (
     <div className="mx-auto my-8 grid grid-cols-[1fr-auto] gap-4 md:grid-cols-[auto_1fr_auto] md:gap-4">
@@ -42,7 +62,21 @@ function SneakerDetails() {
         <p>{colorShown}</p>
         <div className="mt-auto flex items-center justify-between">
           <p>{formatCurrency(price)}</p>
-          <Button type="small">Add to cart</Button>
+
+          {isInCart && (
+            <div className="flex items-center gap-3 sm:gap-8">
+              <UpdateItemQuantity
+                sneakerId={id}
+                currentQuantity={currentQuantity}
+              />
+              <DeleteItem sneakerId={id} />{' '}
+            </div>
+          )}
+          {!isInCart && (
+            <Button type="small" onClick={handleAddToCart}>
+              Add to Cart
+            </Button>
+          )}
         </div>
       </div>
       <div className="font-base h-[350px]  w-[375px]  flex-grow space-y-2 rounded-md bg-green-100 p-4 text-sm">
