@@ -42,6 +42,10 @@ export const {
 
 export default cartSlice.reducer;
 
+//i want us to create a middleware between the dispatch and the store
+//using the apicart we created to fetch sneakers from the supabase
+//and add them to the cart
+
 export const getCart = (state) => state.cart.cart;
 
 export const getTotalCartQuantity = (state) => {
