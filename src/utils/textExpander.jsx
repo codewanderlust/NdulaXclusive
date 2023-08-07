@@ -13,7 +13,7 @@ function TextExpander({
 
   const displayText = isExpanded
     ? text.toString()
-    : text.split(' ').slice(0, collapsedNumWords).join(' ') + '...';
+    : text?.split(' ').slice(0, collapsedNumWords).join(' ') + '...';
 
   const buttonStyle = {
     background: 'none',

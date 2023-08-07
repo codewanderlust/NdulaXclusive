@@ -10,8 +10,10 @@ function EditorsPickList() {
   if (isLoading) return <Loader />;
   return (
     <div className="mt-6">
-      <h1 className="text-2xl font-bold">Editors&apos; Pick</h1>
-      <ul className="flex gap-2">
+      <h1 className="text-base font-bold sm:mb-4 sm:text-xl">
+        Featured Sneakers
+      </h1>
+      <ul className="sm:flex sm:gap-6">
         {editorsPickSneakers?.map((sneaker, i) => (
           <EditorsPickItem key={i} sneaker={sneaker} />
         ))}

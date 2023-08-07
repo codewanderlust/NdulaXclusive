@@ -1,11 +1,8 @@
-import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { LiaShippingFastSolid } from 'react-icons/lia';
 import { HiOutlineClock } from 'react-icons/hi';
 import { HiOutlineArrowPath } from 'react-icons/hi2';
-
 import { getSneakerDetails } from '../services/apiSneakers';
-import Loader from '../ui/Loader';
 import Button from '../ui/Button';
 import { formatCurrency } from '../utils/helpers';
 import TextExpander from '../utils/textExpander';
@@ -13,29 +10,30 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItems, getCurrentQuantityById } from '../features/cart/cartSlice';
 import UpdateItemQuantity from '../features/cart/UpdateItemQuantity';
 import DeleteItem from '../features/cart/DeleteItem';
+import { useQuery } from '@tanstack/react-query';
 
-const BASE_URL = 'http://localhost:8000/';
 function SneakerDetails() {
   // useparams, we use this to read the parameter from the URl
   const { id } = useParams();
 
-  const [sneakerDetails, setSneakerDetails] = useState(null);
   const currentQuantity = useSelector(getCurrentQuantityById(id));
   const dispatch = useDispatch();
-  useEffect(() => {
-    getSneakerDetails(id).then((data) => {
-      setSneakerDetails(data);
-    });
-  }, [id]);
+  // useQuery, we use this to fetch the data from the server
+  const {
+    data: sneakerDetails,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ['sneakerDetails', id],
+    queryFn: () => getSneakerDetails(id),
+  });
+  if (isLoading) return <p>Loading…</p>; // show a loading message
 
-  if (!sneakerDetails) {
-    return <Loader />;
-  }
+  if (error) return <p>Error:{error.message}</p>; // show an error message if no sneaker
 
   const isInCart = currentQuantity > 0;
 
   const { name, image, shoeInfo, price, colorShown } = sneakerDetails;
-  const imageURL = BASE_URL + image;
 
   function handleAddToCart() {
     const newItem = {
@@ -50,7 +48,7 @@ function SneakerDetails() {
 
   return (
     <div className="mx-auto my-8 grid grid-cols-[1fr-auto] gap-4 md:grid-cols-[auto_1fr_auto] md:gap-4">
-      <img src={imageURL} alt={name} className="w-48 md:w-96" />
+      <img src={image} alt={name} className="w-48 md:w-96" />
       <div className="h-[350px] space-y-4 ">
         <h2 className="text-2xl font-bold">{sneakerDetails.name}</h2>
         <TextExpander

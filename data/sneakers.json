@@ -305,18 +305,6 @@
       "colorShown": "Cloud White / Core Black / Cloud White",
       "style": "FX1063"
     },
-    {
-      "id": 26,
-      "name": "Disney x MONOFIT Slip-On Shoes",
-      "numColors": 1,
-      "price": 50,
-      "age_sex": "kids",
-      "brand": "Adidas",
-      "shoeInfo": "The Swift distills decades of adidas heritage running designs. Made for casual everyday wear, these juniors knit shoes come with a sleek shape and a supportive yet flexible feel. They stand out with embroidered accents and reflective 3-Stripes for a striking finish.",
-      "image": "./sneakers/disney-x-monofit-slip-on-shoes.jpg",
-      "colorShown": "Cloud White / Core Black / Cloud White",
-      "style": "FX1363"
-    },
 
     {
       "id": 27,
