@@ -11,6 +11,8 @@ import { addItems, getCurrentQuantityById } from '../features/cart/cartSlice';
 import UpdateItemQuantity from '../features/cart/UpdateItemQuantity';
 import DeleteItem from '../features/cart/DeleteItem';
 import { useQuery } from '@tanstack/react-query';
+import { toast } from 'react-hot-toast';
+import Loader from '../ui/Loader';
 
 function SneakerDetails() {
   // useparams, we use this to read the parameter from the URl
@@ -27,7 +29,7 @@ function SneakerDetails() {
     queryKey: ['sneakerDetails', id],
     queryFn: () => getSneakerDetails(id),
   });
-  if (isLoading) return <p>Loading…</p>; // show a loading message
+  if (isLoading) return <Loader />;
 
   if (error) return <p>Error:{error.message}</p>; // show an error message if no sneaker
 
@@ -44,6 +46,7 @@ function SneakerDetails() {
       totalPrice: price * 1,
     };
     dispatch(addItems(newItem));
+    toast.success('Item added to cart');
   }
 
   return (

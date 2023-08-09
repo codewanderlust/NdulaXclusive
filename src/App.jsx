@@ -30,7 +30,7 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route path="/" element={<Sneaker />} />
-            <Route path="/order" element={<Order />} />
+            <Route path="/order/:orderId" element={<Order />} />
             <Route path="/order/new" element={<CreateOrder />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/women" element={<WomenSneakers />} />
@@ -42,9 +42,9 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Toaster
-        position="top-center"
+        position="bottom-center"
         gutter={12}
-        containerStyle={{ marginTop: '8px' }}
+        containerStyle={{ marginBottom: '8px' }}
         toastOptions={{
           success: {
             duration: 3000,

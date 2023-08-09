@@ -1,21 +1,7 @@
 import supabase from './supabase';
 
-export async function addSneakerToCart(sneakerDetails) {
-  const { name, quantity, price } = sneakerDetails;
-  const totalPrice = quantity * price;
-
-  const { data, error } = await supabase
-    .from('cart')
-    .insert([
-      {
-        sneakerId: sneakerDetails.id,
-        name,
-        quantity,
-        price,
-        totalPrice,
-      },
-    ])
-    .select();
+export async function createCart(newCartItem) {
+  const { data, error } = await supabase.from('cart').insert([newCartItem]);
 
   if (error) {
     console.error(error);
