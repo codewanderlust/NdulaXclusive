@@ -25,11 +25,11 @@ function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="overflow-hidden px-0 py-8 text-lg">
-      <div className="flex flex-col gap-3 px-0 py-2">
-        <label className="font-medium"> Email Address </label>
+    <form onSubmit={handleSubmit} className="overflow-hidden px-0 py-2 text-lg">
+      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <label className="font-medium sm:basis-40">Email Address</label>
         <input
-          className="rounded-sm border border-gray-300 bg-inherit px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           type="email"
           id="email"
           // This makes this form better for password managers
@@ -39,10 +39,10 @@ function LoginForm() {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-      <div className="flex flex-col gap-3 px-0 py-5">
-        <label>Password</label>
+      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <label className="font-medium sm:basis-40">Password</label>
         <input
-          className="rounded-sm border border-gray-300 bg-inherit px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           type="password"
           id="password"
           autoComplete="current-password"
@@ -52,9 +52,7 @@ function LoginForm() {
         />
       </div>
       <div className="flex flex-col gap-3 px-0 py-5">
-        <Button disabled={isLoading} size="small">
-          Login
-        </Button>
+        <Button type="primary">{isLoading ? 'Loggin in...' : 'Log in'}</Button>
       </div>
     </form>
   );

@@ -14,6 +14,8 @@ import CreateOrder from './features/order/CreateOrder';
 import { Toaster } from 'react-hot-toast';
 import ProtectedRoute from './ui/ProtectedRoute';
 import Users from './ui/Users';
+import Accessories from './pages/Accessories';
+import Sales from './pages/Sales';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,6 +46,8 @@ function App() {
             <Route path="/women" element={<WomenSneakers />} />
             <Route path="/kids" element={<KidsSneakers />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/accessories" element={<Accessories />} />
+            <Route path="/sales" element={<Sales />} />
             <Route path="/sneakers/:id" element={<SneakerDetails />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />

@@ -22,22 +22,23 @@ function SignupForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="overflow-hidden px-0 py-9 text-lg"
+      className="overflow-hidden rounded-sm  bg-slate-50 p-12 text-lg shadow-sm"
     >
-      <div className=" grid grid-cols-24rem-1fr-1.2fr items-center gap-10 px-0 py-5 pt-0">
-        <label className="font-medium">Full Name</label>
+      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <label className="font-medium sm:basis-40">Full Name</label>
         <input
           {...register('fullName', { required: 'This field is required' })}
-          className="rounded-sm border border-gray-300 bg-inherit px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           type="text"
           id="fullName"
           disabled={isLoading}
         />
         {errors.fullName && <p>{errors.fullName?.message}</p>}
       </div>
-      <div className=" grid grid-cols-24rem-1fr-1.2fr items-center gap-10 border-b border-b-gray-100 px-0 py-5">
-        <label className="font-medium">Email Address</label>
+      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <label className="font-medium sm:basis-40">Email Address</label>
         <input
+          className="grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           {...register('email', {
             required: 'This field is required',
             pattern: {
@@ -45,16 +46,16 @@ function SignupForm() {
               message: 'Please enter a valid email address',
             },
           })}
-          className="rounded-sm border border-gray-300 bg-inherit px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
           type="email"
           id="email"
           disabled={isLoading}
         />
         {errors.email && <p>{errors.email?.message}</p>}
       </div>
-
-      <div className=" grid grid-cols-24rem-1fr-1.2fr items-center gap-10 border-b border-b-gray-100 px-0 py-5">
-        <label className="font-medium">Password (min 8 characters)</label>
+      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <label className="font-medium sm:basis-40">
+          Password (min 8 characters)
+        </label>
         <input
           {...register('password', {
             required: 'This field is required',
@@ -63,7 +64,7 @@ function SignupForm() {
               message: 'Password needs a minimum of 8 characters',
             },
           })}
-          className="rounded-sm border border-gray-300 bg-inherit px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           type="password"
           id="password"
           disabled={isLoading}
@@ -71,15 +72,15 @@ function SignupForm() {
         {errors.password && <p>{errors.password?.message}</p>}
       </div>
 
-      <div className=" grid grid-cols-24rem-1fr-1.2fr items-center gap-10 border-b border-b-gray-100 px-0 py-5">
-        <label className="font-medium">Repeat password</label>
+      <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <label className="font-medium sm:basis-40">Repeat password</label>
         <input
           {...register('passwordConfirm', {
             required: 'This field is required',
             validate: (value) =>
               value === getValues().password || 'Passwords need to match',
           })}
-          className="rounded-sm border border-gray-300 bg-inherit px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           type="password"
           id="passwordConfirm"
           disabled={isLoading}
@@ -87,7 +88,7 @@ function SignupForm() {
         {errors.passwordConfirm && <p>{errors.passwordConfirm?.message}</p>}
       </div>
 
-      <div className=" grid grid-cols-24rem-1fr-1.2fr items-center gap-10 border-b border-b-gray-100 px-0 py-5">
+      <div className="flex justify-end gap-4">
         {/* type is an HTML attribute! */}
         <Button variation="secondary" type="reset" disabled={isLoading}>
           Cancel

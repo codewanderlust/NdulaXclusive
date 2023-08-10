@@ -6,7 +6,7 @@ function Logout() {
   return (
     <div>
       <button disabled={isLoading} onClick={logout}>
-        <HiArrowRightOnRectangle />
+        <HiArrowRightOnRectangle size={20} />
       </button>
     </div>
   );
