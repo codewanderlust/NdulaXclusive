@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Sneaker from './pages/Sneaker';
 import Order from './pages/Order';
@@ -12,6 +12,8 @@ import KidsSneakers from './pages/KidsSneakers';
 import SneakerDetails from './pages/SneakerDetails';
 import CreateOrder from './features/order/CreateOrder';
 import { Toaster } from 'react-hot-toast';
+import ProtectedRoute from './ui/ProtectedRoute';
+import Users from './ui/Users';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -28,17 +30,25 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<Sneaker />} />
+          <Route
+            element={
+              <ProtectedRoute>
+                <AppLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate replace to="/men" />} />
+            <Route path="/men" element={<Sneaker />} />
             <Route path="/order/:orderId" element={<Order />} />
             <Route path="/order/new" element={<CreateOrder />} />
-            <Route path="/cart" element={<Cart />} />
             <Route path="/women" element={<WomenSneakers />} />
             <Route path="/kids" element={<KidsSneakers />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/sneakers/:id" element={<SneakerDetails />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
           <Route path="login" element={<Login />} />
+          <Route path="users" element={<Users />} />
         </Routes>
       </BrowserRouter>
       <Toaster

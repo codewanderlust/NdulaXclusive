@@ -12,7 +12,16 @@ function LoginForm() {
     e.preventDefault();
 
     if (!email || !password) return;
-    login({ email, password });
+    login(
+      { email, password },
+      {
+        // clearing the field if the login isn't successful
+        onSettled: () => {
+          setEmail('');
+          setPassword('');
+        },
+      },
+    );
   }
 
   return (
