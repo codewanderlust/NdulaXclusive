@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 
 function CartItem({ item }) {
   const { id, name, quantity, totalPrice } = item;
-  console.log(id, 'item ID');
   const currentQuantity = useSelector(getCurrentQuantityById(id));
 
   return (

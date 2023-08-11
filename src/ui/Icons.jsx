@@ -14,10 +14,12 @@ function Icons() {
         <Logout />
         <span>Logout</span>
       </li>
-      <li className="flex items-center justify-center gap-2 ">
-        <HiHeart size={20} />
-        <span>Favourites</span>
-      </li>
+      <Link to="/favourites">
+        <li className="flex items-center justify-center gap-2 ">
+          <HiHeart size={20} />
+          <span>Favourites</span>
+        </li>
+      </Link>
       <Link to="/cart">
         <li className="relative  flex items-center justify-center gap-2">
           <HiShoppingCart size={20} />

@@ -12,6 +12,10 @@ export default {
       gridTemplateColumns: {
         '24rem-1fr-1.2fr': '24rem 1fr 1.2fr',
       },
+
+      fontFamily: {
+        satisfy: 'Satisfy, cursive',
+      },
     },
   },
   plugins: [],

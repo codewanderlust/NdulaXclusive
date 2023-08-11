@@ -8,7 +8,7 @@ function Perks() {
           <HiGift size={32} />
         </div>
         <div>
-          <p className="text-xl font-bold">Upto 30% off</p>
+          <p className="text-xl font-bold">Upto 20% off</p>
           <span>on selected products</span>
         </div>
       </div>

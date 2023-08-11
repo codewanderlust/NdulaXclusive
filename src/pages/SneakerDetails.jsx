@@ -13,6 +13,7 @@ import DeleteItem from '../features/cart/DeleteItem';
 import { useQuery } from '@tanstack/react-query';
 import { toast } from 'react-hot-toast';
 import Loader from '../ui/Loader';
+import SimilarProducts from '../ui/SimilarProducts';
 
 function SneakerDetails() {
   // useparams, we use this to read the parameter from the URl
@@ -50,65 +51,68 @@ function SneakerDetails() {
   }
 
   return (
-    <div className="mx-auto my-8 grid grid-cols-[1fr-auto] gap-4 md:grid-cols-[auto_1fr_auto] md:gap-4">
-      <img src={image} alt={name} className="w-48 md:w-96" />
-      <div className="h-[350px] space-y-4 ">
-        <h2 className="text-2xl font-bold">{sneakerDetails.name}</h2>
-        <TextExpander
-          collapsedNumWords={30}
-          expandButtonText="Show more"
-          collapseButtonText="Show less"
-          text={shoeInfo}
-        ></TextExpander>
-        <p>{colorShown}</p>
-        <div className="mt-auto flex items-center justify-between">
-          <p>{formatCurrency(price)}</p>
+    <div>
+      <div className="mx-auto my-8 grid grid-cols-[1fr-auto] gap-4 md:grid-cols-[auto_1fr_auto] md:gap-4">
+        <img src={image} alt={name} className="w-48 md:w-96" />
+        <div className="h-[350px] space-y-4 ">
+          <h2 className="text-2xl font-bold">{sneakerDetails.name}</h2>
+          <TextExpander
+            collapsedNumWords={30}
+            expandButtonText="Show more"
+            collapseButtonText="Show less"
+            text={shoeInfo}
+          ></TextExpander>
+          <p>{colorShown}</p>
+          <div className="mt-auto flex items-center justify-between">
+            <p>{formatCurrency(price)}</p>
 
-          {isInCart && (
-            <div className="flex items-center gap-3 sm:gap-8">
-              <UpdateItemQuantity
-                sneakerId={id}
-                currentQuantity={currentQuantity}
-              />
-              <DeleteItem sneakerId={id} />{' '}
-            </div>
-          )}
-          {!isInCart && (
-            <Button type="small" onClick={handleAddToCart}>
-              Add to Cart
-            </Button>
-          )}
+            {isInCart && (
+              <div className="flex items-center gap-3 sm:gap-8">
+                <UpdateItemQuantity
+                  sneakerId={id}
+                  currentQuantity={currentQuantity}
+                />
+                <DeleteItem sneakerId={id} />{' '}
+              </div>
+            )}
+            {!isInCart && (
+              <Button type="small" onClick={handleAddToCart}>
+                Add to Cart
+              </Button>
+            )}
+          </div>
+        </div>
+        <div className="font-base h-[350px]  w-[375px]  flex-grow space-y-2 rounded-md bg-green-100 p-4 text-sm">
+          <div className=" flex items-center justify-center gap-6 ">
+            <LiaShippingFastSolid size={36} />
+            <h2 className=" font-bold ">Delivery</h2>
+          </div>
+          <p>Delivery within Nairobi CBD from as low as Ksh. 100</p>
+          <p>Delivery fee depending on area.</p>
+          <ul>
+            <li>
+              • Nairobi<span> - Ksh. 275</span>
+            </li>
+            <li>
+              • Nakuru, Naivasha, Eldoret, Kisumu & Mombasa
+              <span> - Ksh. 400</span>
+            </li>
+          </ul>
+          <p className="flex items-center gap-2">
+            <HiOutlineClock size={20} />{' '}
+            <span>Delivery in Nairobi: 1 business Day</span>
+          </p>
+          <p className="flex items-center gap-2 ">
+            <HiOutlineClock size={20} />{' '}
+            <span>Delivery outside Nairobi: 2 business Days</span>
+          </p>
+          <p className="flex items-center gap-2">
+            <HiOutlineArrowPath size={20} />{' '}
+            <span>Returns: Accepted within 48hrs of order Days</span>
+          </p>
         </div>
       </div>
-      <div className="font-base h-[350px]  w-[375px]  flex-grow space-y-2 rounded-md bg-green-100 p-4 text-sm">
-        <div className=" flex items-center justify-center gap-6 ">
-          <LiaShippingFastSolid size={36} />
-          <h2 className=" font-bold ">Delivery</h2>
-        </div>
-        <p>Delivery within Nairobi CBD from as low as Ksh. 100</p>
-        <p>Delivery fee depending on area.</p>
-        <ul>
-          <li>
-            • Nairobi<span> - Ksh. 275</span>
-          </li>
-          <li>
-            • Nakuru, Naivasha, Eldoret, Kisumu & Mombasa
-            <span> - Ksh. 400</span>
-          </li>
-        </ul>
-        <p className="flex items-center gap-2">
-          <HiOutlineClock size={20} />{' '}
-          <span>Delivery in Nairobi: 1 business Day</span>
-        </p>
-        <p className="flex items-center gap-2 ">
-          <HiOutlineClock size={20} />{' '}
-          <span>Delivery outside Nairobi: 2 business Days</span>
-        </p>
-        <p className="flex items-center gap-2">
-          <HiOutlineArrowPath size={20} />{' '}
-          <span>Returns: Accepted within 48hrs of order Days</span>
-        </p>
-      </div>
+      <SimilarProducts />
     </div>
   );
 }

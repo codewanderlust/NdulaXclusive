@@ -23,11 +23,11 @@ export default function WomenNewBalanceSneakers() {
       <h2 className="text-base font-bold sm:mb-4 sm:text-xl">
         Women&apos;s New Balance Sneakers
       </h2>
-      <ul className=" sm:flex sm:gap-6">
+      <ul className="grid  grid-cols-5 gap-5">
         {womenNewBalanceSneakers.map((sneaker, i) => (
           <li
             key={i}
-            className="relative max-w-[200px] border-[0.8px] border-stone-200 p-4 "
+            className="relative mx-auto max-w-[200px] rounded border border-gray-50 bg-gray-100 p-1.5 "
           >
             <Link to={`/sneakers/${sneaker.id}?name=${sneaker.name}`}>
               <HiOutlineHeart
@@ -40,12 +40,23 @@ export default function WomenNewBalanceSneakers() {
                 src={sneaker.image}
                 alt={sneaker.name}
               />
-              <p className="capitalize">{sneaker.name}</p>
-              <p>
-                {sneaker.numColors}{' '}
-                <span>{sneaker.numColors > 1 ? 'Colors' : 'Color'}</span>
-              </p>
-              <p className="mt-3">{formatCurrency(sneaker.price)}</p>
+
+              <div className="px-1 pt-2">
+                <div className="cursor-pointer text-[15px] font-semibold hover:underline">
+                  {sneaker.name}
+                </div>
+                <div className="text-sm">
+                  <p>
+                    {sneaker.numColors}{' '}
+                    <span className="text-sm">
+                      {sneaker.numColors > 1 ? 'Colors' : 'Color'}
+                    </span>
+                  </p>
+                </div>
+                <div className="font-extrabold">
+                  {formatCurrency(sneaker.price)}
+                </div>
+              </div>
             </Link>
           </li>
         ))}

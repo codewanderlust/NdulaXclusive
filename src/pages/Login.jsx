@@ -10,7 +10,7 @@ function Login() {
           alt=""
         />
         <p className=" font-medium tracking-wide">NdulaExclusive</p>
-        <h1 className=" text-xl font-semibold md:text-2xl ">
+        <h1 className="  text-lg font-semibold md:text-2xl  ">
           Log in to your account
         </h1>
       </div>

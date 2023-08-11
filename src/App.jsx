@@ -16,6 +16,7 @@ import ProtectedRoute from './ui/ProtectedRoute';
 import Users from './ui/Users';
 import Accessories from './pages/Accessories';
 import Sales from './pages/Sales';
+import Favourites from './pages/Favourites';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,13 +33,7 @@ function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route
-            element={
-              <ProtectedRoute>
-                <AppLayout />
-              </ProtectedRoute>
-            }
-          >
+          <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="/men" />} />
             <Route path="/men" element={<Sneaker />} />
             <Route path="/order/:orderId" element={<Order />} />
@@ -49,6 +44,14 @@ function App() {
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/sales" element={<Sales />} />
             <Route path="/sneakers/:id" element={<SneakerDetails />} />
+            <Route
+              path="favourites"
+              element={
+                <ProtectedRoute>
+                  <Favourites />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="*" element={<PageNotFound />} />
           <Route path="login" element={<Login />} />

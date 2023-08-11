@@ -1,79 +1,28 @@
-import { Carousel } from 'react-carousel-minimal';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-function ImageCarousel() {
-  const data = [
-    {
-      image:
-        'https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/sneaker-images/anh-tuan-to-SWFNDe0TvM0-unsplash.jpg?t=2023-08-04T18%3A27%3A26.621Z',
-      caption: 'Grab a pair today!',
-    },
-    {
-      image:
-        'https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/sneaker-images/lefteris-kallergis-j1GiPlvSGWI-unsplash.jpg',
-      caption: 'Grab a pair today!',
-    },
-    {
-      image:
-        'https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/sneaker-images/brandon-kahler-I_FHxvZYT-8-unsplash.jpg?t=2023-08-04T18%3A38%3A35.853Z',
-      caption: 'Grab a pair today!',
-    },
-    {
-      image:
-        'https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/sneaker-images/justin-chrn-qtM9bJ-piVU-unsplash.jpg?t=2023-08-04T18%3A39%3A26.437Z',
-      caption: 'Grab a pair today!',
-    },
-    {
-      image:
-        'https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/sneaker-images/karsten-winegeart-j7DepkurgNc-unsplash.jpg?t=2023-08-04T18%3A39%3A49.347Z',
-      caption: 'Grab a pair today!',
-    },
-  ];
-
-  const captionStyle = {
-    fontSize: '2em',
-    fontWeight: 'bold',
-  };
-  const slideNumberStyle = {
-    fontSize: '20px',
-    fontWeight: 'bold',
-  };
+export default function ImageCarousel() {
   return (
-    <div className="App">
-      <div style={{ textAlign: 'center' }}>
-        <div
-          style={{
-            padding: '0 20px',
-          }}
+    <>
+      <div className="my-10 ">
+        <Carousel
+          showArrows={true}
+          autoPlay={true}
+          interval={3000}
+          infiniteLoop={true}
+          showThumbs={false}
         >
-          <Carousel
-            data={data}
-            time={5000}
-            width="850px"
-            height="350px"
-            captionStyle={captionStyle}
-            radius="10px"
-            slideNumber={false}
-            slideNumberStyle={slideNumberStyle}
-            captionPosition="bottom"
-            automatic={true}
-            dots={true}
-            pauseIconColor="white"
-            pauseIconSize="40px"
-            slideBackgroundColor="darkgrey"
-            slideImageFit="cover"
-            thumbnails={false}
-            thumbnailWidth="100px"
-            style={{
-              textAlign: 'center',
-              maxWidth: '850px',
-              maxHeight: '500px',
-              margin: '40px auto',
-            }}
-          />
-        </div>
+          <div>
+            <img src="https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/banner/1.png?t=2023-08-11T09%3A25%3A46.174Z" />
+          </div>
+          <div>
+            <img src="https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/banner/2.png?t=2023-08-11T09%3A26%3A02.674Z" />
+          </div>
+          <div>
+            <img src="https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/banner/3.png?t=2023-08-11T09%3A26%3A15.208Z" />
+          </div>
+        </Carousel>
       </div>
-    </div>
+    </>
   );
 }
-
-export default ImageCarousel;
