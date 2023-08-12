@@ -25,15 +25,20 @@ function Cart() {
             ))}
           </ul>
         </div>
-        <div className=" flex h-[300px] w-[350px] flex-col gap-4 rounded-md bg-stone-200 p-4">
+        <div className=" flex h-[350px] w-[350px] flex-col gap-4 rounded-md bg-stone-200 p-4">
           <div className="mb-6 flex justify-between  border-b border-stone-400 p-2 font-bold">
             <h2>Order Summary</h2>
             <p>{totalQuantity}</p>
           </div>
-          <div className="flex justify-between">
-            <p className="text-xs">items Total</p>
+          <div className="flex justify-between text-sm font-bold">
+            <p>items total</p>
             <span>${totalPrice}</span>
           </div>
+          <div className="flex justify-between text-sm font-bold">
+            <p>Shipping</p>
+            <span className="tracking-wide">TBC</span>
+          </div>
+
           <div className="flex justify-center gap-2">
             <img
               className="h-7"
@@ -61,7 +66,7 @@ function Cart() {
             <span>${totalPrice}</span>
           </div>
           <button
-            onClick={() => navigate('/login')}
+            onClick={() => navigate('/checkout')}
             className="inline-block rounded-md  bg-green-500 px-4 py-3 text-sm font-semibold capitalize tracking-wide text-slate-50 transition-colors duration-300 hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-200 focus:ring-offset-2 disabled:cursor-not-allowed md:px-6 md:py-4"
           >
             Proceed to Checkout

@@ -6,7 +6,7 @@ function AppLayout() {
   return (
     <div className="grid h-screen grid-rows-[auto_1fr_auto]">
       <Header />
-      <main className="mx-auto max-w-6xl">
+      <main className="mx-auto min-w-[1050px] max-w-[1300px]">
         <Outlet />
       </main>
       <Footer />

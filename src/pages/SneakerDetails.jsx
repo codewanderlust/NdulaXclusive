@@ -41,6 +41,7 @@ function SneakerDetails() {
   function handleAddToCart() {
     const newItem = {
       id,
+      image,
       name,
       quantity: 1,
       price,

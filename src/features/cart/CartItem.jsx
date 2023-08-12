@@ -7,11 +7,14 @@ import { getCurrentQuantityById } from './cartSlice';
 import { useSelector } from 'react-redux';
 
 function CartItem({ item }) {
-  const { id, name, quantity, totalPrice } = item;
+  const { id, image, name, quantity, totalPrice } = item;
   const currentQuantity = useSelector(getCurrentQuantityById(id));
 
   return (
     <li className="py-3 sm:flex sm:items-center sm:justify-between sm:gap-12 ">
+      <div>
+        <img className="w-10" src={image} alt="name" />
+      </div>
       <p className="mb-1  sm:mb-0">
         {quantity}&times; {name}
       </p>
@@ -32,5 +35,6 @@ CartItem.propTypes = {
     name: PropTypes.string.isRequired,
     quantity: PropTypes.number.isRequired,
     totalPrice: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
   }).isRequired,
 };

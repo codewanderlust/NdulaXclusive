@@ -62,7 +62,7 @@ export default function Footer() {
               Investors
             </li>
             <li className="cursor-pointer py-1 text-xs hover:underline">
-              Carears
+              Careers
             </li>
             <li className="cursor-pointer py-1 text-xs hover:underline">
               Government relations

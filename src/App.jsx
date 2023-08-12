@@ -17,6 +17,7 @@ import Users from './ui/Users';
 import Accessories from './pages/Accessories';
 import Sales from './pages/Sales';
 import Favourites from './pages/Favourites';
+import Checkout from './pages/Checkout';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -44,6 +45,7 @@ function App() {
             <Route path="/accessories" element={<Accessories />} />
             <Route path="/sales" element={<Sales />} />
             <Route path="/sneakers/:id" element={<SneakerDetails />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route
               path="favourites"
               element={
