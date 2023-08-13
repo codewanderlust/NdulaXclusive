@@ -90,7 +90,7 @@ function SignupForm() {
 
       <div className="flex justify-end gap-4">
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset" disabled={isLoading}>
+        <Button variation="secondary" disabled={isLoading}>
           Cancel
         </Button>
         <Button>{isLoading ? 'Signing up...' : 'Sign up'}</Button>

@@ -6,12 +6,15 @@ import {
 } from '../features/cart/cartSlice';
 import CheckoutItem from '../features/checkout/CheckoutItem';
 import { formatCurrency } from '../utils/helpers';
+import { useUser } from '../features/authentication/useUser';
 
 function Checkout() {
   const cart = useSelector(getCart);
 
   const totalCartItems = useSelector(getTotalCartQuantity);
   const totalPrice = useSelector(getTotalCartPrice);
+  const { user } = useUser();
+  console.log(user, 'user');
 
   return (
     <>
@@ -24,7 +27,7 @@ function Checkout() {
               <h2 className="mb-2 text-xl font-semibold">Shipping Address</h2>
               <div>
                 <ul className="mt-2 text-sm">
-                  <li>Name: test</li>
+                  <li>Name: {user?.name}</li>
                   <li>Address: test</li>
                   <li>Zipcode: test</li>
                   <li>City: test</li>

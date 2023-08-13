@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Sneaker from './pages/Sneaker';
-import Order from './pages/Order';
+import Order from '../src/features/order/Order';
 import Cart from './features/cart/Cart';
 import AppLayout from './ui/AppLayout';
 import PageNotFound from './pages/PageNotFound';
@@ -10,7 +10,7 @@ import Login from './pages/Login';
 import WomenSneakers from './pages/WomenSneakers';
 import KidsSneakers from './pages/KidsSneakers';
 import SneakerDetails from './pages/SneakerDetails';
-import CreateOrder from './features/order/CreateOrder';
+
 import { Toaster } from 'react-hot-toast';
 import ProtectedRoute from './ui/ProtectedRoute';
 import Users from './ui/Users';
@@ -38,8 +38,8 @@ function App() {
           <Route element={<AppLayout />}>
             <Route index element={<Navigate replace to="/men" />} />
             <Route path="/men" element={<Sneaker />} />
-            <Route path="/order/:orderId" element={<Order />} />
-            <Route path="/order/new" element={<CreateOrder />} />
+            <Route path="/order" element={<Order />} />
+
             <Route path="/women" element={<WomenSneakers />} />
             <Route path="/kids" element={<KidsSneakers />} />
             <Route path="/cart" element={<Cart />} />

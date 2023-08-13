@@ -1,19 +1,18 @@
-import Gender from './Gender';
-import Logo from './Logo';
-import Icons from './Icons';
 import ConstructionBanner from './ConstructionBanner';
+import SubMenu from './SubMenu';
+import TopMenu from './TopMenu';
+import MainHeader from './MainHeader';
 
 function Header() {
   return (
-    <>
+    <div className="bg-white">
       <ConstructionBanner />
-      <header className="flex h-20 items-center justify-between bg-stone-200 px-20 py-4">
-        <Logo />
-        <Gender />
-
-        <Icons />
+      <header>
+        <TopMenu />
+        <MainHeader />
+        <SubMenu />
       </header>
-    </>
+    </div>
   );
 }
 

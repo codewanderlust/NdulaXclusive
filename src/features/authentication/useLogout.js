@@ -14,7 +14,7 @@ export function useLogout() {
 
       //allows us to manually set some data in to the react-query cache
 
-      navigate('/login', { replace: true });
+      navigate('/men', { replace: true });
     },
   });
   return { logout, isLoading };
