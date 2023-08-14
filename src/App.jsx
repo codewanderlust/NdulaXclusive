@@ -11,13 +11,14 @@ import WomenSneakers from './pages/WomenSneakers';
 import KidsSneakers from './pages/KidsSneakers';
 import SneakerDetails from './pages/SneakerDetails';
 import { ToastContainer } from 'react-toastify';
-import ProtectedRoute from './ui/ProtectedRoute';
+// import ProtectedRoute from './ui/ProtectedRoute';
 import Users from './ui/Users';
 import Accessories from './pages/Accessories';
 import Sales from './pages/Sales';
-import Favourites from './pages/Favourites';
+
 import Checkout from './pages/Checkout';
 import Success from './features/success/Success';
+import FavouriteItem from './pages/FavouriteItem';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -47,14 +48,15 @@ function App() {
             <Route path="/sneakers/:id" element={<SneakerDetails />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/success" element={<Success />} />
-            <Route
+            <Route path="/favorites" element={<FavouriteItem />} />
+            {/* <Route
               path="favourites"
               element={
                 <ProtectedRoute>
                   <Favourites />
                 </ProtectedRoute>
               }
-            />
+            /> */}
           </Route>
           <Route path="*" element={<PageNotFound />} />
           <Route path="login" element={<Login />} />

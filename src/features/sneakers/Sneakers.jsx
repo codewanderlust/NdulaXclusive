@@ -1,11 +1,15 @@
+import { toast } from 'react-toastify';
 import Loader from '../../ui/Loader';
 import { formatCurrency } from '../../utils/helpers';
 import { HiOutlineHeart } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+// import { addFavorites } from '../favorites/favoritesSlice';
+// import { useDispatch } from 'react-redux';
 
 //eslint-disable-next-line
 function Sneakers({ title, age_sex, brand, useSneakersHook }) {
-  const { isLoading, sneakers } = useSneakersHook();
+  const dispatch = useDispatch();
+  const { isLoading, sneakers, error } = useSneakersHook();
   if (isLoading) return <Loader />;
 
   const filteredSneakers = sneakers
@@ -14,8 +18,17 @@ function Sneakers({ title, age_sex, brand, useSneakersHook }) {
     )
     .slice(0, 5);
 
-  function handleClick(e) {
+  function handleAddToFavourites(sneaker, e) {
     e.preventDefault();
+    const favoriteItem = {
+      id: sneaker.id,
+      image: sneaker.image,
+      name: sneaker.name,
+      price: sneaker.price,
+    };
+    dispatch(addFavorites(favoriteItem));
+    toast.success('Item added to favourites', { autoClose: 2000 });
+    toast.error(error?.message, { autoClose: 2000 });
   }
 
   return (
@@ -31,7 +44,7 @@ function Sneakers({ title, age_sex, brand, useSneakersHook }) {
               <HiOutlineHeart
                 size={24}
                 className="absolute right-2 top-8 text-stone-500"
-                onClick={handleClick}
+                onClick={(e) => handleAddToFavourites(sneaker, e)}
               />
               <img
                 className="w-36 sm:w-full"
