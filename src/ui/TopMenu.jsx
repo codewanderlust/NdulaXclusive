@@ -1,5 +1,3 @@
-'use client';
-
 import { Link, useNavigate } from 'react-router-dom';
 import { BsChevronDown } from 'react-icons/bs';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
@@ -18,6 +16,12 @@ export default function TopMenu() {
   const { user } = useUser();
   const { logout } = useLogout();
 
+  function handleLogout() {
+    logout();
+    setIsMenu(false);
+  }
+
+  //here we check if the user is logged in or not and display the appropriate menu, the user exists if we have a user id
   const isLoggedIn = () => {
     if (user && user?.id) {
       return (
@@ -53,6 +57,7 @@ export default function TopMenu() {
             <li className="relative px-3">
               {isLoggedIn()}
 
+              {/* in the dropdown menu below we hide and display the menu when the user is logged in and hidden when its not  */}
               <div
                 id="AuthDropdown"
                 className={`
@@ -74,7 +79,7 @@ export default function TopMenu() {
                     <Link href="/orders">My orders</Link>
                   </li>
                   <li
-                    onClick={logout}
+                    onClick={() => handleLogout()}
                     className="w-full cursor-pointer px-4 py-2 text-[11px] text-blue-500 hover:text-blue-600 hover:underline"
                   >
                     Sign out
