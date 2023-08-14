@@ -2,11 +2,11 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import Button from '../../ui/Button';
 import { deleteItems } from './cartSlice';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 function DeleteItem({ sneakerId }) {
   function handleDeleteItem() {
     dispatch(deleteItems(sneakerId));
-    toast.success('Item deleted');
+    toast.success('Item deleted from cart', { autoClose: 2000 });
   }
   const dispatch = useDispatch();
   return (

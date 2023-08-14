@@ -10,8 +10,7 @@ import Login from './pages/Login';
 import WomenSneakers from './pages/WomenSneakers';
 import KidsSneakers from './pages/KidsSneakers';
 import SneakerDetails from './pages/SneakerDetails';
-
-import { Toaster } from 'react-hot-toast';
+import { ToastContainer } from 'react-toastify';
 import ProtectedRoute from './ui/ProtectedRoute';
 import Users from './ui/Users';
 import Accessories from './pages/Accessories';
@@ -62,26 +61,7 @@ function App() {
           <Route path="users" element={<Users />} />
         </Routes>
       </BrowserRouter>
-      <Toaster
-        position="top-right"
-        gutter={12}
-        containerStyle={{ marginBottom: '8px' }}
-        toastOptions={{
-          success: {
-            duration: 3000,
-          },
-          error: {
-            duration: 5000,
-          },
-          style: {
-            fontSize: '12px',
-            maxWidth: '500px',
-            padding: '12px 18px',
-            backgroundColor: '##f5f5f4',
-            color: '#44403c',
-          },
-        }}
-      />
+      <ToastContainer />
     </QueryClientProvider>
   );
 }

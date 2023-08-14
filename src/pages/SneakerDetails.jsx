@@ -11,9 +11,10 @@ import { addItems, getCurrentQuantityById } from '../features/cart/cartSlice';
 import UpdateItemQuantity from '../features/cart/UpdateItemQuantity';
 import DeleteItem from '../features/cart/DeleteItem';
 import { useQuery } from '@tanstack/react-query';
-import { toast } from 'react-hot-toast';
+import { toast } from 'react-toastify';
 import Loader from '../ui/Loader';
 import SimilarProducts from '../ui/SimilarProducts';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SneakerDetails() {
   // useparams, we use this to read the parameter from the URl
@@ -48,7 +49,7 @@ function SneakerDetails() {
       totalPrice: price * 1,
     };
     dispatch(addItems(newItem));
-    toast.success('Item added to cart');
+    toast.success('Item added to cart', { autoClose: 2000 });
   }
 
   return (
