@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+
 import Button from '../../ui/Button';
 import { decreaseItemQuantity, increaseItemQuantity } from './cartSlice';
 
@@ -25,8 +26,3 @@ function UpdateItemQuantity({ sneakerId, currentQuantity }) {
 }
 
 export default UpdateItemQuantity;
-
-UpdateItemQuantity.propTypes = {
-  sneakerId: PropTypes.number.isRequired,
-  currentQuantity: PropTypes.number,
-};

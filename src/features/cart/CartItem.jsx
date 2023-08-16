@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 import { formatCurrency } from '../../utils/helpers';
 
 import DeleteItem from './DeleteItem';
@@ -28,13 +28,3 @@ function CartItem({ item }) {
 }
 
 export default CartItem;
-
-CartItem.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired,
-    totalPrice: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-  }).isRequired,
-};

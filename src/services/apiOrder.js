@@ -1,11 +1,7 @@
 import supabase from './supabase';
 
-export async function getOrder(orderId) {
-  const { data, error } = await supabase
-    .from('order')
-    .select('*')
-    .eq('orderId', orderId)
-    .single();
+export async function getOrder() {
+  const { data, error } = await supabase.from('order').select('*');
 
   if (error) {
     console.error(error);

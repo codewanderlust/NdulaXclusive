@@ -1,15 +1,34 @@
-import { toast } from 'react-toastify';
-import Loader from '../../ui/Loader';
-import { formatCurrency } from '../../utils/helpers';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { HiOutlineHeart } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
-// import { addFavorites } from '../favorites/favoritesSlice';
-// import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import { createFavorite } from '../../services/apiFavorites';
+import Loader from '../../ui/Loader';
+import { formatCurrency } from '../../utils/helpers';
 
 //eslint-disable-next-line
 function Sneakers({ title, age_sex, brand, useSneakersHook }) {
-  const dispatch = useDispatch();
-  const { isLoading, sneakers, error } = useSneakersHook();
+  const {
+    isLoading,
+    sneakers,
+    // , error
+  } = useSneakersHook();
+  const queryClient = useQueryClient();
+  const { mutate } = useMutation({
+    mutationFn: createFavorite,
+    onSuccess: () => {
+      toast.success('Item added to favourites 😍', { autoClose: 2000 });
+      queryClient.invalidateQueries('favorites');
+    },
+    onError: (err) => {
+      console.log('Error object:', err); // Add this line
+      if (err?.message === 'DuplicateKeyError') {
+        toast.error('Item is already a favorite 😀', { autoClose: 2000 });
+      } else {
+        toast.error('Something went wrong 😥', { autoClose: 2000 });
+      }
+    },
+  });
   if (isLoading) return <Loader />;
 
   const filteredSneakers = sneakers
@@ -20,15 +39,16 @@ function Sneakers({ title, age_sex, brand, useSneakersHook }) {
 
   function handleAddToFavourites(sneaker, e) {
     e.preventDefault();
+
     const favoriteItem = {
-      id: sneaker.id,
+      favoriteId: sneaker.id,
       image: sneaker.image,
       name: sneaker.name,
       price: sneaker.price,
+      shoeInfo: sneaker.shoeInfo,
     };
-    dispatch(addFavorites(favoriteItem));
-    toast.success('Item added to favourites', { autoClose: 2000 });
-    toast.error(error?.message, { autoClose: 2000 });
+
+    mutate(favoriteItem);
   }
 
   return (
@@ -63,6 +83,9 @@ function Sneakers({ title, age_sex, brand, useSneakersHook }) {
                       {sneaker.numColors > 1 ? 'Colors' : 'Color'}
                     </span>
                   </p>
+                </div>
+                <div className="hidden">
+                  <p>{sneaker.shoeInfo}</p>
                 </div>
                 <div className="font-extrabold">
                   {formatCurrency(sneaker.price)}

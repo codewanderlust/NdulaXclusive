@@ -66,7 +66,7 @@ function Cart() {
             <span>${totalPrice}</span>
           </div>
           <button
-            onClick={() => navigate('/checkout')}
+            onClick={() => navigate('/order/new')}
             className="inline-block rounded-md  bg-green-500 px-4 py-3 text-sm font-semibold capitalize tracking-wide text-slate-50 transition-colors duration-300 hover:bg-green-400 focus:outline-none focus:ring focus:ring-green-200 focus:ring-offset-2 disabled:cursor-not-allowed md:px-6 md:py-4"
           >
             Proceed to Checkout

@@ -1,5 +1,6 @@
+/* eslint react/prop-types: 0 */
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+
 import { useNavigate } from 'react-router-dom';
 
 function LinkButton({ children, to }) {
@@ -19,8 +20,3 @@ function LinkButton({ children, to }) {
 }
 
 export default LinkButton;
-
-LinkButton.propTypes = {
-  children: PropTypes.node.isRequired,
-  to: PropTypes.string.isRequired,
-};

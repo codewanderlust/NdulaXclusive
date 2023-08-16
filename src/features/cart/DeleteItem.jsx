@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import { useDispatch } from 'react-redux';
-import PropTypes from 'prop-types';
+
 import Button from '../../ui/Button';
 import { deleteItems } from './cartSlice';
 import { toast } from 'react-toastify';
@@ -18,7 +19,3 @@ function DeleteItem({ sneakerId }) {
 }
 
 export default DeleteItem;
-
-DeleteItem.propTypes = {
-  sneakerId: PropTypes.number.isRequired,
-};

@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './features/cart/cartSlice';
+import addressReducer from './features/order/addressSlice';
 import { loadState, saveState } from './utils/localStorage';
 
 const persistedState = loadState();
@@ -7,6 +8,7 @@ const persistedState = loadState();
 const store = configureStore({
   reducer: {
     cart: cartReducer,
+    address: addressReducer,
   },
   preloadedState: persistedState,
 });
