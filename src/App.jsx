@@ -41,7 +41,7 @@ function App() {
             <Route index element={<Navigate replace to="/men" />} />
             <Route path="/men" element={<Sneaker />} />
             <Route
-              path="/order"
+              path="/orders"
               element={
                 <ProtectedRoute>
                   <Order />

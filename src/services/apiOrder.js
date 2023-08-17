@@ -1,7 +1,11 @@
 import supabase from './supabase';
 
 export async function getOrder() {
-  const { data, error } = await supabase.from('order').select('*');
+  const { data, error } = await supabase
+    .from('order')
+    .select('*')
+    .order('created_at', { ascending: false }) // Assuming 'created_at' is the timestamp field
+    .limit(1);
 
   if (error) {
     console.error(error);

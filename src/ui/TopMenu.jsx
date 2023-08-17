@@ -14,6 +14,7 @@ export default function TopMenu() {
   const navigate = useNavigate();
 
   const { user } = useUser();
+  console.log(user);
   const { logout } = useLogout();
 
   function handleLogout() {
@@ -76,7 +77,7 @@ export default function TopMenu() {
 
                 <ul className="bg-white">
                   <li className="w-full cursor-pointer px-4 py-2 text-[11px] text-blue-500 hover:text-blue-600 hover:underline">
-                    <Link href="/orders">My orders</Link>
+                    <Link to="/orders">My orders</Link>
                   </li>
                   <li
                     onClick={() => handleLogout()}

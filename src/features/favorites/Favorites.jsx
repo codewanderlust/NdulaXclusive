@@ -39,7 +39,7 @@ function Favorites() {
   if (!favorites.length)
     return (
       <div className="flex items-center justify-center">
-        You have no order history
+        You have not added any favorites.
       </div>
     );
   return (

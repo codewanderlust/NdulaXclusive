@@ -1,20 +1,34 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useQuery } from '@tanstack/react-query';
 import {
+  clearCart,
   getCart,
   getTotalCartPrice,
   getTotalCartQuantity,
 } from '../features/cart/cartSlice';
 import CheckoutItem from '../features/checkout/CheckoutItem';
 import { formatCurrency } from '../utils/helpers';
-import { useUser } from '../features/authentication/useUser';
+import { getOrder } from '../services/apiOrder';
+import { useNavigate } from 'react-router';
 
 function Checkout() {
   const cart = useSelector(getCart);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const totalCartItems = useSelector(getTotalCartQuantity);
   const totalPrice = useSelector(getTotalCartPrice);
-  const { user } = useUser();
-  console.log(user, 'user');
+
+  const { data: user } = useQuery({
+    queryKey: ['orders'],
+    queryFn: getOrder,
+  });
+
+  function handleCheckout(event) {
+    event.preventDefault(); // Prevent the default form submission
+    dispatch(clearCart());
+    navigate('/success');
+  }
 
   return (
     <>
@@ -27,11 +41,12 @@ function Checkout() {
               <h2 className="mb-2 text-xl font-semibold">Shipping Address</h2>
               <div>
                 <ul className="mt-2 text-sm">
-                  <li>Name: {user?.name}</li>
-                  <li>Address: test</li>
-                  <li>Zipcode: test</li>
-                  <li>City: test</li>
-                  <li>Country: test</li>
+                  {user?.map((order, i) => (
+                    <li key={i}>
+                      <p> Name: {order?.name}</p>
+                      <p> Address: {order?.address}</p>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -66,7 +81,7 @@ function Checkout() {
                 </div>
               </div>
 
-              <form>
+              <form onSubmit={handleCheckout}>
                 <div
                   className="rounded-sm border border-gray-500 p-2"
                   id="card-element"
@@ -92,7 +107,7 @@ function Checkout() {
                 width={50}
                 src="https://fgfppclstifnqgadpqux.supabase.co/storage/v1/object/public/logo/ndulaxclusive-logo.png?t=2023-08-12T08%3A14%3A06.423Z"
               />
-              <div className=" mb-2 mt-2 font-light">MONEY BACK GUARANTEE</div>
+              <p className=" mb-2 mt-2 font-light">MONEY BACK GUARANTEE</p>
             </div>
           </div>
         </div>

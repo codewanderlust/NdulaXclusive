@@ -3,32 +3,37 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { BiLoaderCircle } from 'react-icons/bi';
+import { getSneakerByName } from '../services/apiSneakers';
+import { formatCurrency } from '../utils/helpers';
 
 export default function MainLayout() {
   const [items, setItems] = useState([]);
   const [isSearching, setIsSearching] = useState(null);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
   const handleSearchName = debounce(async (event) => {
-    if (event.target.value == '') {
+    const searchTerm = event.target.value.trim(); // Trim leading/trailing spaces
+
+    if (searchTerm === '') {
       setItems([]);
+      setIsDropdownVisible(false);
       return;
     }
 
     setIsSearching(true);
 
     try {
-      const response = await fetch(
-        `/api/products/search-by-name/${event.target.value}`,
-      );
-      const result = await response.json();
+      const response = await getSneakerByName(searchTerm);
 
-      if (result) {
-        setItems(result);
+      if (response) {
+        setItems(response);
         setIsSearching(false);
-        return;
+        setIsDropdownVisible(true);
+      } else {
+        setItems([]);
+        setIsSearching(false);
+        setIsDropdownVisible(false);
       }
-      setItems([]);
-      setIsSearching(false);
     } catch (error) {
       console.log(error);
       alert(error);
@@ -77,26 +82,27 @@ export default function MainLayout() {
                         />
                       ) : null}
 
-                      {items.length > 0 ? (
+                      {isDropdownVisible && items.length > 0 ? (
                         <div className="absolute left-0 top-12 z-20 h-auto w-full max-w-[910px] border bg-white p-1">
-                          {items.map((item) => (
-                            <div className="p-1" key={item.id}>
+                          {items.map((item, i) => (
+                            <div className="p-1" key={i}>
                               <Link
-                                href={`/product/${item?.id}`}
+                                to={`/sneakers/${item.id}`}
+                                onClick={() => setIsDropdownVisible(false)}
                                 className="flex w-full cursor-pointer items-center justify-between p-1 px-2 hover:bg-gray-200"
                               >
                                 <div className="flex items-center">
                                   <img
                                     className="rounded-md"
                                     width="40"
-                                    src={item?.url + '/40'}
+                                    src={item?.image}
                                   />
                                   <div className="ml-2 truncate">
-                                    {item?.title}
+                                    {item?.name}
                                   </div>
                                 </div>
                                 <div className="truncate">
-                                  £{(item?.price / 100).toFixed(2)}
+                                  {formatCurrency(item?.price)}
                                 </div>
                               </Link>
                             </div>

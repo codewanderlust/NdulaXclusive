@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 function DeleteItem({ sneakerId }) {
   function handleDeleteItem() {
     dispatch(deleteItems(sneakerId));
-    toast.success('Item deleted from cart', { autoClose: 2000 });
+    toast.info('Item deleted from cart', { autoClose: 2000 });
   }
   const dispatch = useDispatch();
   return (

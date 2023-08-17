@@ -24,3 +24,17 @@ export async function getSneakerDetails(id) {
   }
   return data;
 }
+
+// async function to fetch sneaker based on the name
+export async function getSneakerByName(name) {
+  const { data, error } = await supabase
+    .from('sneakers')
+    .select('*')
+    .ilike('name', `%${name}%`);
+
+  if (error) {
+    console.error(error);
+    throw new Error('Sneaker could not be loaded');
+  }
+  return data;
+}

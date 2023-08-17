@@ -1,18 +1,20 @@
+import { Link } from 'react-router-dom';
+
 export default function SubMenu() {
   // when we are dealing with static data, we can use the following approach to render the menu items
-  const menuItems = [
-    { id: 1, name: 'Home' },
-    { id: 2, name: 'Favourites' },
-    { id: 3, name: 'Men' },
-    { id: 4, name: 'Women' },
-    { id: 5, name: 'Kids' },
-    { id: 6, name: 'Accessories' },
-    { id: 7, name: 'Sports' },
-    { id: 8, name: 'Health & Beauty' },
-    { id: 9, name: 'Industrial Equipment' },
-    { id: 10, name: 'Home & Garden' },
-    { id: 11, name: 'Sell' },
-  ];
+  // const menuItems = [
+  //   { id: 1, name: 'Home' },
+  //   { id: 2, name: 'Favourites' },
+  //   { id: 3, name: 'Men' },
+  //   { id: 4, name: 'Women' },
+  //   { id: 5, name: 'Kids' },
+  //   { id: 6, name: 'Accessories' },
+  //   { id: 7, name: 'Sports' },
+  //   { id: 8, name: 'Health & Beauty' },
+  //   { id: 9, name: 'Industrial Equipment' },
+  //   { id: 10, name: 'Home & Garden' },
+  //   { id: 11, name: 'Sell' },
+  // ];
 
   return (
     <>
@@ -29,11 +31,32 @@ export default function SubMenu() {
                             text-[#333333]
                         "
           >
-            {menuItems.map((item) => (
+            {/* {menuItems.map((item) => (
               <li key={item.id} className="cursor-pointer px-3 hover:underline">
                 {item.name}
               </li>
-            ))}
+            ))} */}
+            <Link to="/" className="cursor-pointer px-3">
+              Home
+            </Link>
+            <Link to="/favorites" className="cursor-pointer px-3">
+              Favorites
+            </Link>
+            <Link to="/" className="cursor-pointer px-3">
+              Men
+            </Link>
+            <Link to="/women" className="cursor-pointer px-3">
+              Women
+            </Link>
+            <Link to="kids" className="cursor-pointer px-3">
+              Kids
+            </Link>
+            <Link className="cursor-pointer px-3">Accessories</Link>
+            <Link className="cursor-pointer px-3">Sports</Link>
+            <Link className="cursor-pointer px-3">Health & Beauty</Link>
+            <Link className="cursor-pointer px-3">Industrial Equipment</Link>
+            <Link className="cursor-pointer px-3">Home & Garden</Link>
+            <Link className="cursor-pointer px-3">Sell</Link>
           </ul>
         </div>
       </div>
