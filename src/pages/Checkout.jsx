@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useQuery } from '@tanstack/react-query';
+
 import {
-  clearCart,
   getCart,
   getTotalCartPrice,
   getTotalCartQuantity,
@@ -9,12 +9,11 @@ import {
 import CheckoutItem from '../features/checkout/CheckoutItem';
 import { formatCurrency } from '../utils/helpers';
 import { getOrder } from '../services/apiOrder';
-import { useNavigate } from 'react-router';
+
+import StripeContainer from '../features/stripe/StripeContainer';
 
 function Checkout() {
   const cart = useSelector(getCart);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const totalCartItems = useSelector(getTotalCartQuantity);
   const totalPrice = useSelector(getTotalCartPrice);
@@ -23,12 +22,6 @@ function Checkout() {
     queryKey: ['orders'],
     queryFn: getOrder,
   });
-
-  function handleCheckout(event) {
-    event.preventDefault(); // Prevent the default form submission
-    dispatch(clearCart());
-    navigate('/success');
-  }
 
   return (
     <>
@@ -81,25 +74,7 @@ function Checkout() {
                 </div>
               </div>
 
-              <form onSubmit={handleCheckout}>
-                <div
-                  className="rounded-sm border border-gray-500 p-2"
-                  id="card-element"
-                />
-
-                <p
-                  id="card-error"
-                  role="alert"
-                  className="relative top-2 text-center font-semibold text-red-700"
-                />
-
-                <button
-                  type="submit"
-                  className="mt-4 w-full rounded-full bg-blue-600 p-3 text-lg font-semibold text-white"
-                >
-                  <div>Confirm and pay</div>
-                </button>
-              </form>
+              <StripeContainer />
             </div>
 
             <div className="flex items-center justify-center gap-2 border-t p-4">

@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
+/* eslint-disable react/prop-types */
 import { formatCurrency } from '../../utils/helpers';
+
 function CheckoutItem({ product }) {
   return (
     <>
@@ -27,7 +28,3 @@ function CheckoutItem({ product }) {
 }
 
 export default CheckoutItem;
-
-CheckoutItem.propTypes = {
-  product: PropTypes.object.isRequired,
-};
