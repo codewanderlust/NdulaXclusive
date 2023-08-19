@@ -2,7 +2,7 @@ import { HiGift, HiTruck, HiMiniShoppingBag } from 'react-icons/hi2';
 
 function Perks() {
   return (
-    <div className="m-2 justify-around sm:flex ">
+    <div className=" m-2 flex justify-around ">
       <div className="flex items-center gap-3 rounded-md bg-white px-8 py-6">
         <div className="rounded-full bg-stone-300 p-2">
           <HiGift size={32} />

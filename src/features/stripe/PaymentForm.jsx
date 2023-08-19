@@ -67,8 +67,8 @@ export default function PaymentForm() {
               <CardElement options={CARD_OPTIONS} />
             </div>
           </fieldset>
-          <button className="mt-4 w-full rounded-full bg-blue-600 p-3 text-lg font-semibold text-white">
-            Confirm and Pay {total > 0 ? formatCurrency(total) : ''}
+          <button className="mt-6 w-full rounded-md bg-blue-500 p-3 text-sm font-medium tracking-wide text-slate-50">
+            Pay {total > 0 ? formatCurrency(total) : ''}
           </button>
         </form>
       ) : (

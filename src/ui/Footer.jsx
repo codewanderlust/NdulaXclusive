@@ -3,8 +3,8 @@ export default function Footer() {
   return (
     <>
       <div id="Footer" className="mt-20 border-t px-2">
-        <div className="mx-auto flex w-full max-w-[1200px] items-baseline justify-between py-10">
-          <ul>
+        <div className="mx-auto flex max-w-[1200px]  justify-between py-10">
+          <ul className="w-full  sm:w-1/3">
             <li className="flex items-center text-lg font-bold sm:mb-4">
               <p className="font-satisfy ">ndula</p>
               <span>Xclusive</span>
@@ -21,7 +21,7 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-          <ul className="text-gray-700">
+          <ul className="w-full text-gray-700 sm:w-1/3">
             <li className="text-lg font-bold">Buy</li>
             <li className="mt-2 cursor-pointer py-1 text-xs hover:underline">
               Registration
@@ -37,7 +37,7 @@ export default function Footer() {
             </li>
           </ul>
 
-          <ul className="text-gray-700">
+          <ul className="w-full text-gray-700 sm:w-1/3">
             <li className="text-lg font-bold">Sell</li>
             <li className="mt-2 cursor-pointer py-1 text-xs hover:underline">
               Start selling
@@ -50,7 +50,7 @@ export default function Footer() {
             </li>
           </ul>
 
-          <ul className="text-gray-700">
+          <ul className="w-full text-gray-700 sm:w-1/3">
             <li className="text-lg font-bold">About ndulaXclusive</li>
             <li className="mt-2 cursor-pointer py-1 text-xs hover:underline">
               Company info
