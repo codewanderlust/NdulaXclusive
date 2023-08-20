@@ -2,14 +2,14 @@ import { HiGift, HiTruck, HiMiniShoppingBag } from 'react-icons/hi2';
 
 function Perks() {
   return (
-    <div className=" m-2 flex justify-around ">
+    <div className=" m-2 flex flex-col justify-around  gap-2  sm:flex-row">
       <div className="flex items-center gap-3 rounded-md bg-white px-8 py-6">
         <div className="rounded-full bg-stone-300 p-2">
           <HiGift size={32} />
         </div>
         <div>
-          <p className="text-xl font-bold">Upto 20% off</p>
-          <span>on selected products</span>
+          <p className="text-base font-bold sm:text-xl">Upto 20% off</p>
+          <span className="text-sm sm:text-base">on selected products</span>
         </div>
       </div>
       <div className="flex items-center gap-3 rounded-md bg-white px-8 py-6">
@@ -17,8 +17,8 @@ function Perks() {
           <HiTruck size={32} />
         </div>
         <div>
-          <p className="text-xl font-bold">Same Day Delivery </p>
-          <span>within Nairobi</span>
+          <p className="text-base font-bold sm:text-xl">Same Day Delivery </p>
+          <span className="text-sm sm:text-base">within Nairobi</span>
         </div>
       </div>
       <div className="flex items-center gap-3 rounded-md bg-white px-8 py-6">
@@ -26,8 +26,8 @@ function Perks() {
           <HiMiniShoppingBag size={32} />
         </div>
         <div>
-          <p className="text-xl font-bold">Free return </p>
-          <span>on any products</span>
+          <p className="text-base font-bold sm:text-xl">Free return </p>
+          <span className="text-sm sm:text-base">on any products</span>
         </div>
       </div>
     </div>

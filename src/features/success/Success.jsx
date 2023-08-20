@@ -15,7 +15,7 @@ export default function Success() {
               <AiOutlineCheckCircle className="text-green-500" size={35} />
               <span className="pl-4">Payment Successful</span>
             </div>
-            <p className="text-sm">
+            <p className="text-xs sm:text-sm">
               Thank you! We&apos;ve received your payment.
             </p>
 

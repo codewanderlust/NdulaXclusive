@@ -37,7 +37,7 @@ function SneakerDetails() {
 
   const isInCart = currentQuantity > 0;
 
-  const { name, image, shoeInfo, price, colorShown } = sneakerDetails;
+  const { name, image, shoeInfo, price, colorShown, style } = sneakerDetails;
 
   function handleAddToCart() {
     const newItem = {
@@ -57,14 +57,20 @@ function SneakerDetails() {
       <div className="mx-auto my-8 grid grid-cols-[1fr-auto] gap-4 md:grid-cols-[auto_1fr_auto] md:gap-4">
         <img src={image} alt={name} className="w-48 md:w-96" />
         <div className="h-[350px] space-y-4 ">
-          <h2 className="text-2xl font-bold">{sneakerDetails.name}</h2>
+          <h2 className="text-lg font-bold sm:text-2xl">
+            {sneakerDetails.name}
+          </h2>
           <TextExpander
             collapsedNumWords={30}
             expandButtonText="Show more"
             collapseButtonText="Show less"
             text={shoeInfo}
+            className={'text-sm sm:text-base'}
           ></TextExpander>
-          <p>{colorShown}</p>
+          <p className="text-sm  font-semibold sm:text-base">
+            Shown: {colorShown}
+          </p>
+          <p className="text-sm  font-semibold sm:text-base">Style: {style}</p>
           <div className="mt-auto flex items-center justify-between">
             <p>{formatCurrency(price)}</p>
 
@@ -84,7 +90,7 @@ function SneakerDetails() {
             )}
           </div>
         </div>
-        <div className="font-base h-[350px]  w-[375px]  flex-grow space-y-2 rounded-md bg-green-100 p-4 text-sm">
+        <div className="font-base h-[350px]  flex-grow  space-y-2 rounded-md bg-green-100 p-4 text-sm sm:w-[375px]">
           <div className=" flex items-center justify-center gap-6 ">
             <LiaShippingFastSolid size={36} />
             <h2 className=" font-bold ">Delivery</h2>

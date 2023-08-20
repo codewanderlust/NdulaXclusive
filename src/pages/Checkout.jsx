@@ -29,7 +29,7 @@ function Checkout() {
         <div className="mb-4 mt-4 text-2xl font-bold">Checkout</div>
 
         <div className="relative mx-auto flex w-full flex-col items-baseline justify-between gap-4 sm:flex-row">
-          <div className="w-[65%]">
+          <div className="w-full sm:w-[50%]">
             <div className="rounded-lg border bg-white p-4">
               <h2 className="mb-2 text-xl font-semibold">Shipping Address</h2>
               <div>
@@ -53,7 +53,7 @@ function Checkout() {
 
           <div
             id="PlaceOrder"
-            className="relative -top-[6px] w-[35%] rounded-lg border"
+            className="relative -top-[6px] w-full rounded-lg border sm:w-[50%]"
           >
             <div className="p-4">
               <div className="mb-1 flex items-baseline justify-between text-sm">
@@ -69,7 +69,7 @@ function Checkout() {
 
               <div className="my-4 flex items-center justify-between">
                 <div className="font-semibold">Order total</div>
-                <div className="text-2xl font-semibold">
+                <div className="font-semibold sm:text-lg">
                   {formatCurrency(totalPrice)}
                 </div>
               </div>

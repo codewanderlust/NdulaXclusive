@@ -20,6 +20,7 @@
     "@tanstack/react-query-devtools": "^4.32.1",
     "axios": "^1.4.0",
     "debounce": "^1.2.1",
+    "ionicons": "^7.1.2",
     "json-server": "^0.17.3",
     "react": "^18.2.0",
     "react-carousel-minimal": "^1.4.1",

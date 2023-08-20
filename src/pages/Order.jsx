@@ -24,10 +24,7 @@ export default function TopMenu() {
 
   return (
     <>
-      <div
-        id="OrdersPage"
-        className="mx-auto mt-4 min-h-[50vh] max-w-[1200px] px-2"
-      >
+      <div id="OrdersPage" className="mx-auto mt-4 min-h-[50vh] max-w-6xl px-2">
         <div className="min-h-[150px] w-full bg-white p-6">
           <div className="flex items-center text-xl">
             <CiDeliveryTruck className="text-green-500" size={35} />
@@ -40,7 +37,7 @@ export default function TopMenu() {
           ) : null}
 
           {orders.map((order) => (
-            <div key={order?.orderId} className="pl-[50px] text-sm">
+            <div key={order?.orderId} className=" text-sm">
               <div className="border-b py-1">
                 <div className="pt-2">
                   <span className="mr-2 font-bold">Name:</span>
@@ -62,9 +59,12 @@ export default function TopMenu() {
                   {moment(order?.created_at).add(3, 'days').calendar()}
                 </div> */}
 
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col items-center gap-4 sm:flex-row">
                   {JSON.parse(order?.cart).map((item, i) => (
-                    <div key={i} className="flex items-center gap-4">
+                    <div
+                      key={i}
+                      className="mt-4 flex flex-col items-center gap-4 sm:mt-0 sm:flex-row"
+                    >
                       <Link
                         className="py-1 font-bold text-blue-500 hover:underline"
                         to={`/sneakers/${item.id}`}

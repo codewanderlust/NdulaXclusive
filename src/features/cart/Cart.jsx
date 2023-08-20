@@ -25,7 +25,7 @@ function Cart() {
             ))}
           </ul>
         </div>
-        <div className=" flex h-[350px] w-[350px] flex-col gap-4 rounded-md bg-stone-200 p-4">
+        <div className=" mt-4 flex h-[350px] flex-col gap-4 rounded-md bg-stone-200 p-4 sm:mt-0 sm:w-[350px]">
           <div className="mb-6 flex justify-between  border-b border-stone-400 p-2 font-bold">
             <h2>Order Summary</h2>
             <p>{totalQuantity}</p>

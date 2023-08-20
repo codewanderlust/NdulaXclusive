@@ -5,7 +5,10 @@ function CheckoutItem({ product }) {
   return (
     <>
       <div className="mb-2 flex justify-start rounded-lg border p-4">
-        <img className="h-[150px] w-[150px] rounded-md" src={product.image} />
+        <img
+          className="h-[150px] rounded-md sm:w-[150px]"
+          src={product.image}
+        />
 
         <div className="overflow-hidden pl-2">
           <div className="font-semibold">{product.name}</div>

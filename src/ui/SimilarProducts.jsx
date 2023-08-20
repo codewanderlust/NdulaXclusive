@@ -28,11 +28,11 @@ function SimilarProducts() {
         <div className="mx-auto max-w-[1200px] border-b py-1" />
 
         <div className="mx-auto max-w-[1200px]">
-          <div className="mt-4 py-2 text-2xl font-bold">
+          <div className="mt-4 py-2 text-base font-bold sm:text-2xl">
             Similar sponsored items
           </div>
 
-          <div className="grid grid-cols-5 gap-4">
+          <div className="grid gap-4 sm:grid-cols-5">
             {randomProducts.map((product, i) => (
               <Product key={i} product={product} />
             ))}

@@ -11,11 +11,11 @@ function CartItem({ item }) {
   const currentQuantity = useSelector(getCurrentQuantityById(id));
 
   return (
-    <li className="py-3 sm:flex sm:items-center sm:justify-between sm:gap-12 ">
+    <li className="flex flex-col gap-2 py-3 sm:flex-row  sm:items-center sm:justify-between sm:gap-12 ">
       <div>
         <img className="w-10" src={image} alt="name" />
       </div>
-      <p className="mb-1  sm:mb-0">
+      <p className="mb-1  text-sm sm:mb-0 sm:text-base">
         {quantity}&times; {name}
       </p>
       <div className="flex items-center justify-between text-sm font-bold sm:gap-6">

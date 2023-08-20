@@ -2,14 +2,14 @@ import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
 export default function Footer() {
   return (
     <>
-      <div id="Footer" className="mt-20 border-t px-2">
-        <div className="mx-auto flex max-w-[1200px]  justify-between py-10">
-          <ul className="w-full  sm:w-1/3">
+      <footer id="Footer" className=" mt-20 border-t px-2">
+        <div className="min-w-6xl max-w-8xl mx-auto flex flex-col  p-4 sm:flex-row  sm:justify-between sm:px-4 sm:py-10">
+          <ul className="mb-8 w-full sm:mb-0 sm:w-1/3">
             <li className="flex items-center text-lg font-bold sm:mb-4">
               <p className="font-satisfy ">ndula</p>
               <span>Xclusive</span>
             </li>
-            <li className="flex items-center gap-4">
+            <li className="mt-2 flex items-center gap-4">
               <a href="">
                 <FaTwitter size={24} />
               </a>
@@ -21,7 +21,7 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-          <ul className="w-full text-gray-700 sm:w-1/3">
+          <ul className="mb-8 w-full text-gray-700 sm:mb-0 sm:w-1/3">
             <li className="text-lg font-bold">Buy</li>
             <li className="mt-2 cursor-pointer py-1 text-xs hover:underline">
               Registration
@@ -72,7 +72,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-      </div>
+      </footer>
     </>
   );
 }

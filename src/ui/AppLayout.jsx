@@ -5,9 +5,9 @@ import NavBar from './NavBar';
 
 function AppLayout() {
   return (
-    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
+    <div className="grid  grid-rows-[auto_1fr_auto]">
       <NavBar />
-      <main className="mx-auto min-w-[1050px] max-w-[1300px]">
+      <main className="mx-auto  max-w-6xl p-6">
         <Outlet />
       </main>
       <Footer />

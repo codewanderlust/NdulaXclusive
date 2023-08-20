@@ -1,29 +1,12 @@
-// import { useEffect } from 'react';
-
 import { getFavorites } from '../../services/apiFavorites';
-// import { useState } from 'react';
-// import { toast } from 'react-toastify';
+
 import { formatCurrency } from '../../utils/helpers';
-// import LinkButton from '../../ui/LinkButton';
+
 import { useQuery } from '@tanstack/react-query';
 import { useDeleteFavorite } from './useDeleteFavorite';
 import Loader from '../../ui/Loader';
 
 function Favorites() {
-  // const [favorites, setFavorites] = useState([]);
-
-  // useEffect(() => {
-  //   async function fetchFavorites() {
-  //     try {
-  //       const data = await getFavorites();
-  //       setFavorites(data); // Assuming data is an array of favorite items
-  //     } catch (error) {
-  //       toast.error('Error fetching favorites:', { autoClose: 3000 });
-  //     }
-  //   }
-  //   fetchFavorites();
-  // }, []);
-
   const {
     isLoading,
     data: favorites,
@@ -48,7 +31,7 @@ function Favorites() {
       {favorites?.map((item, i) => (
         <li
           key={i}
-          className="relative my-2 flex w-full justify-start border p-6"
+          className="my-2 flex w-full flex-col justify-start border p-6 sm:relative sm:flex-row"
         >
           <img
             src={item.image}
@@ -57,8 +40,8 @@ function Favorites() {
           />
 
           <div className="w-full overflow-hidden pl-2">
-            <div className="flex w-full items-center justify-between">
-              <p className="flex w-[400px] items-center justify-between text-[16px] font-semibold underline">
+            <div className="flex w-full flex-col items-center justify-between sm:flex-row">
+              <p className="flex items-center justify-between text-[16px] font-semibold underline sm:w-[400px]">
                 {item.name}
               </p>
               <div className="text-lg font-bold">
@@ -70,7 +53,7 @@ function Favorites() {
               {item?.shoeInfo.substring(0, 150)}...
             </div>
 
-            <div className="absolute bottom-0 right-0 p-4 text-sm">
+            <div className="mt-2 text-sm sm:absolute sm:bottom-0 sm:right-0 sm:p-4">
               <button
                 className="border-none bg-none text-sm text-blue-500 hover:text-blue-600 hover:underline"
                 onClick={() => deleteFavorite(item.favoriteId)}

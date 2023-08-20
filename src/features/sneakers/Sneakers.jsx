@@ -54,11 +54,11 @@ function Sneakers({ title, age_sex, brand, useSneakersHook }) {
   return (
     <div className="mt-6">
       <h2 className="text-base font-bold sm:mb-4 sm:text-xl">{title}</h2>
-      <ul className="grid grid-cols-5 gap-5">
+      <ul className="grid gap-5 sm:grid-cols-5">
         {filteredSneakers.map((sneaker, i) => (
           <li
             key={i}
-            className="relative mx-auto max-w-[200px] rounded border border-gray-50 bg-gray-100 p-1.5"
+            className="relative mx-auto  rounded border border-gray-50 bg-gray-100 p-1.5"
           >
             <Link to={`/sneakers/${sneaker.id}?name=${sneaker.name}`}>
               <HiOutlineHeart
