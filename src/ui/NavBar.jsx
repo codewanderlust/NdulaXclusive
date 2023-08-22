@@ -145,7 +145,7 @@ export default function NavBar() {
                     <div className="flex items-center justify-start gap-1 p-3">
                       <img
                         width={50}
-                        src={avatar || 'default-user.jpg'}
+                        src={avatar || './logo/default-user.jpg'}
                         alt={`Avatar of ${fullName}`}
                       />
                       <div className="text-[13px] font-bold">{fullName}</div>
@@ -355,7 +355,7 @@ export default function NavBar() {
         </div>
 
         <ul
-          className={`fixed left-0 right-0 top-12 flex flex-col items-center gap-2 bg-white pb-2 transition-all duration-500 ease-in ${
+          className={`fixed left-0 right-0 top-12 z-[999] flex flex-col items-center gap-2 bg-white pb-2 transition-all duration-500 ease-in ${
             open ? 'opacity-100' : 'pointer-events-none opacity-0'
           }`}
         >
