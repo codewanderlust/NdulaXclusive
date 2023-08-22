@@ -25,6 +25,8 @@ export default function NavBar() {
   const totalCartItems = useSelector(getTotalCartQuantity);
   const navigate = useNavigate();
   const { user } = useUser();
+  const fullName = user?.user_metadata?.fullName;
+  const avatar = user?.user_metadata?.avatar || './logo/default-user.jpg';
 
   const { logout } = useLogout();
 
@@ -102,7 +104,7 @@ export default function NavBar() {
           onClick={() => (!isMenu ? setIsMenu(true) : setIsMenu(false))}
           className="flex cursor-pointer items-center gap-2 hover:underline"
         >
-          <div>Hi, {user.name}</div>
+          <div>Hi, {fullName}</div>
           <BsChevronDown />
         </button>
       );
@@ -141,8 +143,12 @@ export default function NavBar() {
                 >
                   <div>
                     <div className="flex items-center justify-start gap-1 p-3">
-                      <img width={50} src={user?.picture} />
-                      <div className="text-[13px] font-bold">{user?.name}</div>
+                      <img
+                        width={50}
+                        src={avatar || 'default-user.jpg'}
+                        alt={`Avatar of ${fullName}`}
+                      />
+                      <div className="text-[13px] font-bold">{fullName}</div>
                     </div>
                   </div>
 
@@ -299,7 +305,7 @@ export default function NavBar() {
           <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between">
             <ul
               id="TopMenuLeft"
-              className="z-[999] flex h-8 items-center bg-white px-2 text-[13px] text-[#333333] md:flex-row"
+              className=" flex h-8 items-center bg-white px-2 text-[13px] text-[#333333] md:flex-row"
             >
               {Links.map((link, i) => (
                 <Link
@@ -349,7 +355,7 @@ export default function NavBar() {
         </div>
 
         <ul
-          className={`fixed left-0 right-0 top-12 z-[999] flex flex-col items-center gap-2 bg-white pb-2 transition-all duration-500 ease-in ${
+          className={`fixed left-0 right-0 top-12 flex flex-col items-center gap-2 bg-white pb-2 transition-all duration-500 ease-in ${
             open ? 'opacity-100' : 'pointer-events-none opacity-0'
           }`}
         >

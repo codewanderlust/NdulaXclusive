@@ -9,6 +9,7 @@ import { createOrder } from '../../services/apiOrder';
 import { toast } from 'react-hot-toast';
 import { fetchAddress } from './addressSlice';
 import { useNavigate } from 'react-router';
+import { useUser } from '../authentication/useUser';
 
 const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
@@ -20,6 +21,9 @@ function CreateOrderForm() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const { user } = useUser();
+  const { fullName } = user.user_metadata;
 
   const dispatch = useDispatch();
   const cart = useSelector(getCart);
@@ -73,7 +77,7 @@ function CreateOrderForm() {
             {...register('name', { required: true })}
             // the grow tailwind class was used to ensure that the labels were of the same size
             className="input grow"
-            // defaultValue={username}
+            defaultValue={fullName}
 
             //import value we used to ensure that the application auto-filled the name of the logged in user
           />
