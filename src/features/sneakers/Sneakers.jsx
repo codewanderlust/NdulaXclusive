@@ -57,6 +57,7 @@ function Sneakers({ title, age_sex, brand, useSneakersHook }) {
       <ul className="grid gap-5 sm:grid-cols-5">
         {filteredSneakers.map((sneaker, i) => (
           <li
+            data-test={`sneaker-${sneaker.id}`}
             key={i}
             className="relative mx-auto  rounded border border-gray-50 bg-gray-100 p-1.5"
           >

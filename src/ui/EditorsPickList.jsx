@@ -10,7 +10,10 @@ function EditorsPickList() {
   if (isLoading) return <Loader />;
   return (
     <div className="mt-6">
-      <h1 className="text-base font-bold sm:mb-4 sm:text-xl">
+      <h1
+        data-test="featured-header"
+        className="text-base font-bold sm:mb-4 sm:text-xl"
+      >
         Featured Sneakers
       </h1>
       <ul className="grid gap-5 sm:grid-cols-5">

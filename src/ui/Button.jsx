@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-function Button({ children, disabled, to, type, onClick }) {
+function Button({ children, disabled, to, type, onClick, dataTest }) {
   const base =
     ' inline-block text-sm  bg-stone-500 font-semibold uppercase tracking-wide text-slate-200 transition-colors duration-300 hover:bg-stone-400 focus:outline-none focus:ring focus:ring-stone-200 focus:ring-offset-2 disabled:cursor-not-allowed';
   const styles = {
@@ -20,12 +20,17 @@ function Button({ children, disabled, to, type, onClick }) {
     );
   if (onClick)
     return (
-      <button disabled={disabled} onClick={onClick} className={styles[type]}>
+      <button
+        data-set={dataTest}
+        disabled={disabled}
+        onClick={onClick}
+        className={styles[type]}
+      >
         {children}
       </button>
     );
   return (
-    <button disabled={disabled} className={styles[type]}>
+    <button data-set={dataTest} disabled={disabled} className={styles[type]}>
       {children}
     </button>
   );
@@ -39,4 +44,5 @@ Button.propTypes = {
   to: PropTypes.string,
   type: PropTypes.oneOf(['primary', 'small', 'secondary', 'round']),
   onClick: PropTypes.func,
+  dataTest: PropTypes.string,
 };

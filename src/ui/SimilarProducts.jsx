@@ -28,9 +28,12 @@ function SimilarProducts() {
         <div className="mx-auto max-w-[1200px] border-b py-1" />
 
         <div className="mx-auto max-w-[1200px]">
-          <div className="mt-4 py-2 text-base font-bold sm:text-2xl">
+          <h1
+            data-test="similar-products"
+            className="mt-4 py-2 text-base font-bold sm:text-2xl"
+          >
             Similar sponsored items
-          </div>
+          </h1>
 
           <div className="grid gap-4 sm:grid-cols-5">
             {randomProducts.map((product, i) => (

@@ -53,7 +53,7 @@ function SneakerDetails() {
   }
 
   return (
-    <div>
+    <>
       <div className="mx-auto my-8 grid grid-cols-[1fr-auto] gap-4 md:grid-cols-[auto_1fr_auto] md:gap-4">
         <img src={image} alt={name} className="w-48 md:w-96" />
         <div className="h-[350px] space-y-4 ">
@@ -61,6 +61,7 @@ function SneakerDetails() {
             {sneakerDetails.name}
           </h2>
           <TextExpander
+            data-test={`text-expander-${sneakerDetails.id}`}
             collapsedNumWords={30}
             expandButtonText="Show more"
             collapseButtonText="Show less"
@@ -80,11 +81,15 @@ function SneakerDetails() {
                   sneakerId={id}
                   currentQuantity={currentQuantity}
                 />
-                <DeleteItem sneakerId={id} />{' '}
+                <DeleteItem sneakerId={id} />
               </div>
             )}
             {!isInCart && (
-              <Button type="small" onClick={handleAddToCart}>
+              <Button
+                data-test="add-to-cart"
+                type="small"
+                onClick={handleAddToCart}
+              >
                 Add to Cart
               </Button>
             )}
@@ -121,7 +126,7 @@ function SneakerDetails() {
         </div>
       </div>
       <SimilarProducts />
-    </div>
+    </>
   );
 }
 

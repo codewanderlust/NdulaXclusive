@@ -5,7 +5,7 @@ export default function ImageCarousel() {
   return (
     <>
       {/* <div className="mx-auto lg:w-1/2 xl:w-1/3"> */}
-      <div>
+      <div className="my-2 sm:my-4">
         <Carousel
           showArrows={true}
           autoPlay={true}

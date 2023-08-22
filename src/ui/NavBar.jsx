@@ -192,7 +192,10 @@ export default function NavBar() {
                 Ship to
               </li>
 
-              <li className="cursor-pointer px-3 hover:underline">
+              <li
+                className="cursor-pointer px-3 hover:underline"
+                data-set="cart-icon"
+              >
                 <div onClick={() => navigate('/cart')} className="relative">
                   <AiOutlineShoppingCart size={22} />
                   {totalCartItems > 0 ? (

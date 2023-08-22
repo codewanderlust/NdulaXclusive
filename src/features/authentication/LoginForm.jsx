@@ -6,8 +6,8 @@ import { useLogin } from './useLogin';
 import LinkButton from '../../ui/LinkButton';
 
 function LoginForm() {
-  const [email, setEmail] = useState('roy@example.com');
-  const [password, setPassword] = useState('1234');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { login, isLoading } = useLogin();
 
   function handleSubmit(e) {

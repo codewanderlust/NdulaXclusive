@@ -10,13 +10,16 @@ import { toast } from 'react-hot-toast';
 import { fetchAddress } from './addressSlice';
 import { useNavigate } from 'react-router';
 
-// const isValidPhone = (str) =>
-//   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
-//     str,
-
-//   );
+const isValidPhone = (str) =>
+  /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
+    str,
+  );
 function CreateOrderForm() {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const dispatch = useDispatch();
   const cart = useSelector(getCart);
@@ -56,9 +59,11 @@ function CreateOrderForm() {
 
   if (!cart.length) return <EmptyCart />;
   return (
-    <div className="px-4 py-6">
-      <h2 className="mb-8 text-xl font-semibold">Ready to order? Lets go!</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className=" px-4 py-6">
+      <h2 data-set="create-order-header" className="mb-8 text-xl font-semibold">
+        Ready to order? Lets go!
+      </h2>
+      <form data-set="create-order-form" onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center ">
           {/* we used basis to ensure that the labels don't pile on top of each other, important style to keep in mind */}
           <label className="sm:basis-40">First Name</label>
@@ -68,6 +73,8 @@ function CreateOrderForm() {
             {...register('name', { required: true })}
             // the grow tailwind class was used to ensure that the labels were of the same size
             className="input grow"
+            // defaultValue={username}
+
             //import value we used to ensure that the application auto-filled the name of the logged in user
           />
         </div>
@@ -78,9 +85,19 @@ function CreateOrderForm() {
             <input
               type="tel"
               id="phone"
-              {...register('phone', { required: true })}
+              {...register('phone', {
+                required: 'Phone number is required',
+                validate: (value) =>
+                  isValidPhone(value) ||
+                  'Please give us your correct phone number. We might need to contact you',
+              })}
               className="input w-full"
             />
+            {errors.phone && (
+              <p className="mt-2 rounded-md bg-red-100 p-2 text-xs text-red-700">
+                {errors.phone.message}
+              </p>
+            )}
           </div>
         </div>
         <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
@@ -132,7 +149,11 @@ function CreateOrderForm() {
           />
           {/* since we want to submit the form with the actual position data, same an the cart, we are going to add another input for the gps location */}
 
-          <Button disabled={isCreating} type="primary">
+          <Button
+            dataTest="create-order-btn"
+            disabled={isCreating}
+            type="small"
+          >
             {isCreating ? 'Creating order...' : 'Create order '}
           </Button>
         </div>
