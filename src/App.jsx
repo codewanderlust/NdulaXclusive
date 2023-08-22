@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ToastContainer } from 'react-toastify';
 import { lazy } from 'react';
 import { Suspense } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 import Loader from './ui/Loader';
 const Sneaker = lazy(() => import('./pages/Sneaker'));
 const Order = lazy(() => import('./pages/Order'));
@@ -38,6 +39,7 @@ function App() {
 
       <BrowserRouter>
         <Suspense fallback={<Loader />}>
+          <ToastContainer />
           <Routes>
             <Route element={<AppLayout />}>
               <Route index element={<Navigate replace to="/men" />} />
@@ -97,7 +99,6 @@ function App() {
           </Routes>
         </Suspense>
       </BrowserRouter>
-      <ToastContainer />
     </QueryClientProvider>
   );
 }
