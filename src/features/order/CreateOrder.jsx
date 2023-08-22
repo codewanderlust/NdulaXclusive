@@ -23,7 +23,7 @@ function CreateOrderForm() {
   } = useForm();
 
   const { user } = useUser();
-  const { fullName } = user.user_metadata;
+  const fullName = user?.user_metadata?.fullName;
 
   const dispatch = useDispatch();
   const cart = useSelector(getCart);
