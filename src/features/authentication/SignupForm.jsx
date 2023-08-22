@@ -3,7 +3,7 @@ import Button from '../../ui/Button';
 
 import { useSignUp } from './useSignUp';
 
-// Email regex: /\S+@\S+\.\S+/
+// const isValidEmail = (str) => /\S+@\S+\.\S+/.test(str);
 
 function SignupForm() {
   const { signUp, isLoading } = useSignUp();
@@ -21,6 +21,7 @@ function SignupForm() {
 
   return (
     <form
+      data-set="signup-form"
       onSubmit={handleSubmit(onSubmit)}
       className="overflow-hidden rounded-sm  bg-slate-50 p-12 text-lg shadow-sm"
     >
@@ -30,7 +31,7 @@ function SignupForm() {
           {...register('fullName', { required: 'This field is required' })}
           className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           type="text"
-          id="fullName"
+          name="fullName"
           disabled={isLoading}
         />
         {errors.fullName && <p>{errors.fullName?.message}</p>}
@@ -47,7 +48,7 @@ function SignupForm() {
             },
           })}
           type="email"
-          id="email"
+          name="email"
           disabled={isLoading}
         />
         {errors.email && <p>{errors.email?.message}</p>}
@@ -66,7 +67,7 @@ function SignupForm() {
           })}
           className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           type="password"
-          id="password"
+          name="password"
           disabled={isLoading}
         />
         {errors.password && <p>{errors.password?.message}</p>}
@@ -82,7 +83,7 @@ function SignupForm() {
           })}
           className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
           type="password"
-          id="passwordConfirm"
+          name="passwordConfirm"
           disabled={isLoading}
         />
         {errors.passwordConfirm && <p>{errors.passwordConfirm?.message}</p>}
@@ -93,7 +94,9 @@ function SignupForm() {
         <Button variation="secondary" disabled={isLoading}>
           Cancel
         </Button>
-        <Button>{isLoading ? 'Signing up...' : 'Sign up'}</Button>
+        <Button dataTest="signup-btn" type="small">
+          {isLoading ? 'Signing up...' : 'Sign up'}
+        </Button>
       </div>
     </form>
   );

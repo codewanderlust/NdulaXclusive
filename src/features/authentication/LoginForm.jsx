@@ -29,6 +29,7 @@ function LoginForm() {
   return (
     <div>
       <form
+        data-set="login-form"
         onSubmit={handleSubmit}
         className="overflow-hidden px-0 py-2 text-lg"
       >
@@ -37,7 +38,7 @@ function LoginForm() {
           <input
             className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
             type="email"
-            id="email"
+            name="email"
             // This makes this form better for password managers
             autoComplete="username"
             value={email}
@@ -50,7 +51,7 @@ function LoginForm() {
           <input
             className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
             type="password"
-            id="password"
+            name="password"
             autoComplete="current-password"
             value={password}
             disabled={isLoading}
@@ -58,7 +59,7 @@ function LoginForm() {
           />
         </div>
         <div className="flex flex-col gap-3 px-0 py-5">
-          <Button type="primary">
+          <Button dataTest="login-btn" type="primary">
             {isLoading ? 'Loggin in...' : 'Log in'}
           </Button>
         </div>

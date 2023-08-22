@@ -59,7 +59,7 @@ function CreateOrderForm() {
 
   if (!cart.length) return <EmptyCart />;
   return (
-    <div className=" px-4 py-6">
+    <div className=" px-4 py-6 sm:w-[800px]">
       <h2 data-set="create-order-header" className="mb-8 text-xl font-semibold">
         Ready to order? Lets go!
       </h2>

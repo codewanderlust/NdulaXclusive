@@ -63,11 +63,11 @@ export default function NavBar() {
   }
   const isLoggedInMobile = user && user.id;
   const Links = [
-    { name: 'Home', link: '/men' },
-    { name: 'Favorites', link: '/favorites' },
-    { name: 'Men', link: '/men' },
-    { name: 'Women', link: '/women' },
-    { name: 'Kids', link: '/kids' },
+    { name: 'Home', link: '/men', dataTest: 'nav-home' },
+    { name: 'Favorites', link: '/favorites', dataTest: 'nav-favorites' },
+    { name: 'Men', link: '/men', dataTest: 'nav-men' },
+    { name: 'Women', link: '/women', dataTest: 'nav-women' },
+    { name: 'Kids', link: '/kids', dataTest: 'nav-kids' },
     { name: 'Accessories' },
     { name: 'Sports' },
     { name: 'Health and Beauty' },
@@ -302,7 +302,12 @@ export default function NavBar() {
               className="z-[999] flex h-8 items-center bg-white px-2 text-[13px] text-[#333333] md:flex-row"
             >
               {Links.map((link, i) => (
-                <Link to={link?.link} key={i} className="cursor-pointer px-3">
+                <Link
+                  to={link?.link}
+                  key={i}
+                  className="cursor-pointer px-3"
+                  data-test={link.dataTest}
+                >
                   {link?.name}
                 </Link>
               ))}
