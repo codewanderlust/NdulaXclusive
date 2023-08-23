@@ -56,7 +56,6 @@ function CreateOrderForm() {
 
   function onSubmit(data) {
     //we are go to call mutate and pass in the data
-    console.log(data, 'TEST');
     mutate(data);
     navigate('/checkout');
   }
@@ -74,7 +73,8 @@ function CreateOrderForm() {
           <input
             type="text"
             id="name"
-            {...register('name', { required: true })}
+            required
+            {...register('name')}
             // the grow tailwind class was used to ensure that the labels were of the same size
             className="input grow"
             defaultValue={fullName}

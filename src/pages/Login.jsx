@@ -10,11 +10,11 @@ function Login() {
           alt=""
         />
         <p className=" font-medium tracking-wide">NdulaExclusive</p>
-        <h1 className="  text-lg font-semibold md:text-2xl  ">
+        <h1 className="   text-base font-semibold md:text-2xl ">
           Log in to your account
         </h1>
       </div>
-      <div className="mx-auto grid max-w-3xl items-center justify-center gap-4 bg-gray-50 shadow-sm sm:my-8 sm:p-4">
+      <div className="mx-auto my-2 grid max-w-3xl items-center justify-center gap-4 bg-gray-50 p-2 shadow-sm sm:my-8 sm:p-4">
         <LoginForm />
       </div>
     </>

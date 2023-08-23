@@ -1,7 +1,8 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useQuery } from '@tanstack/react-query';
 
 import {
+  clearCart,
   getCart,
   getTotalCartPrice,
   getTotalCartQuantity,
@@ -9,19 +10,28 @@ import {
 import CheckoutItem from '../features/checkout/CheckoutItem';
 import { formatCurrency } from '../utils/helpers';
 import { getOrder } from '../services/apiOrder';
+import { useNavigate } from 'react-router';
 
-import StripeContainer from '../features/stripe/StripeContainer';
+// import StripeContainer from '../features/stripe/StripeContainer';
 
 function Checkout() {
   const cart = useSelector(getCart);
+  const navigate = useNavigate();
 
   const totalCartItems = useSelector(getTotalCartQuantity);
   const totalPrice = useSelector(getTotalCartPrice);
+  const dispatch = useDispatch();
 
   const { data: user } = useQuery({
     queryKey: ['orders'],
     queryFn: getOrder,
   });
+
+  function handleCheckout(e) {
+    e.preventDefault();
+    navigate('/success');
+    dispatch(clearCart());
+  }
 
   return (
     <>
@@ -73,8 +83,25 @@ function Checkout() {
                   {formatCurrency(totalPrice)}
                 </div>
               </div>
+              <form>
+                <div
+                  className="rounded-sm border-gray-500 p-2"
+                  id="card-element"
+                />
+                <p
+                  id="card-error"
+                  role="alert"
+                  className="relative top-2 text-center font-semibold text-red-700"
+                ></p>
+                <button
+                  onClick={handleCheckout}
+                  className="mt-6 w-full rounded-md bg-blue-500 p-3 text-sm font-medium tracking-wide text-slate-50"
+                >
+                  Pay {totalPrice > 0 ? formatCurrency(totalPrice) : ''}
+                </button>
+              </form>
 
-              <StripeContainer />
+              {/* <StripeContainer /> */}
             </div>
 
             <div className="flex items-center justify-center gap-2 border-t p-4">

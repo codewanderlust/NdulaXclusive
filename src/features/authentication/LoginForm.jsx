@@ -34,11 +34,14 @@ function LoginForm() {
         className="overflow-hidden px-0 py-2 text-lg"
       >
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="font-medium sm:basis-40">Email Address</label>
+          <label className="text-sm font-medium sm:basis-40 sm:text-base">
+            Email Address
+          </label>
           <input
             className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
             type="email"
             name="email"
+            required
             // This makes this form better for password managers
             autoComplete="username"
             value={email}
@@ -47,7 +50,9 @@ function LoginForm() {
           />
         </div>
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
-          <label className="font-medium sm:basis-40 ">Password</label>
+          <label className="text-sm font-medium sm:basis-40 sm:text-base ">
+            Password
+          </label>
           <input
             className=" grow rounded-md border border-stone-200 px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring  focus:ring-stone-200 md:px-6 md:py-3"
             type="password"
@@ -55,11 +60,12 @@ function LoginForm() {
             autoComplete="current-password"
             value={password}
             disabled={isLoading}
+            required
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="flex flex-col gap-3 px-0 py-5">
-          <Button dataTest="login-btn" type="primary">
+        <div className=" flex justify-center gap-3 px-0 py-5 sm:justify-end">
+          <Button dataTest="login-btn" type="small">
             {isLoading ? 'Loggin in...' : 'Log in'}
           </Button>
         </div>

@@ -4,7 +4,7 @@ export async function getOrder() {
   const { data, error } = await supabase
     .from('order')
     .select('*')
-    .order('created_at', { ascending: false }) // Assuming 'created_at' is the timestamp field
+    .order('estimatedDelivery', { ascending: false }) // Assuming 'created_at' is the timestamp field
     .limit(1);
 
   if (error) {
