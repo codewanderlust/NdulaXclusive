@@ -45,9 +45,10 @@ This is an e-commerce store that allows users to buy sneakers. With features lik
 ### Tech Stack <a name="tech-stack"></a>
 
   <ul>
-    <li><a href="https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started">React</a></li>
+    <li><a href="https://react.dev">React</a></li>
+    <li><a href="https://redux.js.org/introduction/getting-started">Redux</a></li>
     <li><a href="https://tailwindcss.com/">Tailwind</a></li>
-    <li><a href="https://supabase.com//">Supabase</a></li>
+    <li><a href="https://supabase.com">Supabase</a></li>
   </ul>
 
 <!-- Features -->
@@ -156,6 +157,6 @@ This project was designed based on the eBay wireframe.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./license) licensed.
+This project is [MIT](./LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
