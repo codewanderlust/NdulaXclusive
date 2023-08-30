@@ -1,7 +1,5 @@
 import { useParams } from 'react-router';
-import { LiaShippingFastSolid } from 'react-icons/lia';
-import { HiOutlineClock } from 'react-icons/hi';
-import { HiOutlineArrowPath } from 'react-icons/hi2';
+
 import { getSneakerDetails } from '../services/apiSneakers';
 import Button from '../ui/Button';
 import { formatCurrency } from '../utils/helpers';
@@ -15,6 +13,7 @@ import { toast } from 'react-toastify';
 import Loader from '../ui/Loader';
 import SimilarProducts from '../ui/SimilarProducts';
 import 'react-toastify/dist/ReactToastify.css';
+import ShippingInfoCard from '../ui/ShippingInfoCard';
 
 function SneakerDetails() {
   // useparams, we use this to read the parameter from the URl
@@ -95,35 +94,7 @@ function SneakerDetails() {
             )}
           </div>
         </div>
-        <div className="font-base h-[350px]  flex-grow  space-y-2 rounded-md bg-green-100 p-4 text-sm sm:w-[375px]">
-          <div className=" flex items-center justify-center gap-6 ">
-            <LiaShippingFastSolid size={36} />
-            <h2 className=" font-bold ">Delivery</h2>
-          </div>
-          <p>Delivery within Nairobi CBD from as low as Ksh. 100</p>
-          <p>Delivery fee depending on area.</p>
-          <ul>
-            <li>
-              • Nairobi<span> - Ksh. 275</span>
-            </li>
-            <li>
-              • Nakuru, Naivasha, Eldoret, Kisumu & Mombasa
-              <span> - Ksh. 400</span>
-            </li>
-          </ul>
-          <p className="flex items-center gap-2">
-            <HiOutlineClock size={20} />{' '}
-            <span>Delivery in Nairobi: 1 business Day</span>
-          </p>
-          <p className="flex items-center gap-2 ">
-            <HiOutlineClock size={20} />{' '}
-            <span>Delivery outside Nairobi: 2 business Days</span>
-          </p>
-          <p className="flex items-center gap-2">
-            <HiOutlineArrowPath size={20} />{' '}
-            <span>Returns: Accepted within 48hrs of order Days</span>
-          </p>
-        </div>
+        <ShippingInfoCard />
       </div>
       <SimilarProducts />
     </>

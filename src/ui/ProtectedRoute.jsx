@@ -1,9 +1,9 @@
+/* eslint react/prop-types: 0 */
 import Loader from './Loader';
 import { useUser } from '../features/authentication/useUser';
 import { useNavigate } from 'react-router';
 import { useEffect } from 'react';
 
-// eslint-disable-next-line
 function ProtectedRoute({ children }) {
   const navigate = useNavigate();
   //load the aunthenticated user

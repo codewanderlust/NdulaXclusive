@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+/* eslint react/prop-types: 0 */
 
 import { HiOutlineHeart } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
@@ -35,14 +35,3 @@ function EditorsPickItem({ sneaker }) {
 }
 
 export default EditorsPickItem;
-
-EditorsPickItem.propTypes = {
-  sneaker: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-    age_sex: PropTypes.string.isRequired,
-    brand: PropTypes.string.isRequired,
-    id: PropTypes.number,
-  }).isRequired,
-};

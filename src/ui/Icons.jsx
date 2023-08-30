@@ -7,7 +7,7 @@ import Logout from '../features/authentication/Logout';
 function Icons() {
   const totalQuantity = useSelector(getTotalCartQuantity);
 
-  // if (!totalQuantity) return null;
+
   return (
     <ul className="flex items-center justify-center gap-2 text-sm ">
       <li className="flex items-center justify-center gap-2  ">

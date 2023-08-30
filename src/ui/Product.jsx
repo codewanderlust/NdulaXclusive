@@ -1,8 +1,7 @@
+/* eslint react/prop-types: 0 */
 import { Link } from 'react-router-dom';
 import { formatCurrency } from '../utils/helpers';
-import PropTypes from 'prop-types';
 
-//eslint-disable-next-line
 export default function Product({ product }) {
   return (
     <>
@@ -32,7 +31,3 @@ export default function Product({ product }) {
     </>
   );
 }
-
-Product.propTypes = {
-  product: PropTypes.object.isRequired,
-};
